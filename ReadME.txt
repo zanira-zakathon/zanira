@@ -1,3 +1,0 @@
-AIUEO
-
-AIUEO
