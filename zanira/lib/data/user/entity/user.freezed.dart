@@ -30,7 +30,7 @@ mixin _$User {
   String? get email => throw _privateConstructorUsedError;
   @JsonKey(name: 'role')
   String get role => throw _privateConstructorUsedError;
-  @JsonKey(name: 'foundation_id')
+  @JsonKey(name: 'yayasan_id')
   int get foundationId => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -49,7 +49,7 @@ abstract class $UserCopyWith<$Res> {
       @JsonKey(name: 'no_hp') String noHp,
       @JsonKey(name: 'email') String? email,
       @JsonKey(name: 'role') String role,
-      @JsonKey(name: 'foundation_id') int foundationId});
+      @JsonKey(name: 'yayasan_id') int foundationId});
 }
 
 /// @nodoc
@@ -113,7 +113,7 @@ abstract class _$$_UserCopyWith<$Res> implements $UserCopyWith<$Res> {
       @JsonKey(name: 'no_hp') String noHp,
       @JsonKey(name: 'email') String? email,
       @JsonKey(name: 'role') String role,
-      @JsonKey(name: 'foundation_id') int foundationId});
+      @JsonKey(name: 'yayasan_id') int foundationId});
 }
 
 /// @nodoc
@@ -170,7 +170,7 @@ class _$_User implements _User {
       @JsonKey(name: 'no_hp') this.noHp,
       @JsonKey(name: 'email') this.email,
       @JsonKey(name: 'role') this.role,
-      @JsonKey(name: 'foundation_id') this.foundationId);
+      @JsonKey(name: 'yayasan_id') this.foundationId);
 
   factory _$_User.fromJson(Map<String, dynamic> json) => _$$_UserFromJson(json);
 
@@ -190,7 +190,7 @@ class _$_User implements _User {
   @JsonKey(name: 'role')
   final String role;
   @override
-  @JsonKey(name: 'foundation_id')
+  @JsonKey(name: 'yayasan_id')
   final int foundationId;
 
   @override
@@ -238,7 +238,7 @@ abstract class _User implements User {
       @JsonKey(name: 'no_hp') final String noHp,
       @JsonKey(name: 'email') final String? email,
       @JsonKey(name: 'role') final String role,
-      @JsonKey(name: 'foundation_id') final int foundationId) = _$_User;
+      @JsonKey(name: 'yayasan_id') final int foundationId) = _$_User;
 
   factory _User.fromJson(Map<String, dynamic> json) = _$_User.fromJson;
 
@@ -258,7 +258,7 @@ abstract class _User implements User {
   @JsonKey(name: 'role')
   String get role;
   @override
-  @JsonKey(name: 'foundation_id')
+  @JsonKey(name: 'yayasan_id')
   int get foundationId;
   @override
   @JsonKey(ignore: true)

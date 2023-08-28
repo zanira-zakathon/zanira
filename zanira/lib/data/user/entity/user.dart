@@ -10,7 +10,7 @@ class User with _$User {
       @JsonKey(name: 'no_hp') String noHp,
       @JsonKey(name: 'email') String? email,
       @JsonKey(name: 'role') String role,
-      @JsonKey(name: 'foundation_id') int foundationId) = _User;
+      @JsonKey(name: 'yayasan_id') int foundationId) = _User;
 
   factory User.fromJson(Map<String, dynamic> json) => _$UserFromJson(json);
 }
