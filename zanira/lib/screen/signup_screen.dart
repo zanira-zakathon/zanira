@@ -24,11 +24,11 @@ class SignUpScreen extends ConsumerWidget {
               const SizedBox(
                 height: 50,
               ),
-              Image.asset(
-                'assets/logo.png',
-                width: 100,
-                height: 100,
-              ),
+              // Image.asset(
+              //   'assets/logo.png',
+              //   width: 100,
+              //   height: 100,
+              // ),
               const SizedBox(
                 height: 20,
               ),
@@ -93,8 +93,8 @@ class SignUpScreen extends ConsumerWidget {
                 ),
               ),
               Padding(
-                padding:
-                    const EdgeInsets.only(left: 20, top: 0, right: 20, bottom: 10),
+                padding: const EdgeInsets.only(
+                    left: 20, top: 0, right: 20, bottom: 10),
                 child: TextFormField(
                   keyboardType: TextInputType.visiblePassword,
                   controller: passController,
@@ -106,7 +106,8 @@ class SignUpScreen extends ConsumerWidget {
                       hintText: 'Enter your password',
                       suffixIcon: InkWell(
                         onTap: () {
-                          ref.read(passToggleProvider.notifier).state = !ref.read(passToggleProvider.notifier).state;
+                          ref.read(passToggleProvider.notifier).state =
+                              !ref.read(passToggleProvider.notifier).state;
                         },
                         child: Icon(passToggle
                             ? Icons.visibility
@@ -125,8 +126,8 @@ class SignUpScreen extends ConsumerWidget {
                 ),
               ),
               Padding(
-                padding:
-                    const EdgeInsets.only(left: 20, top: 0, right: 20, bottom: 10),
+                padding: const EdgeInsets.only(
+                    left: 20, top: 0, right: 20, bottom: 10),
                 child: TextFormField(
                   keyboardType: TextInputType.visiblePassword,
                   controller: passConfirmController,
@@ -155,9 +156,7 @@ class SignUpScreen extends ConsumerWidget {
                         left: 20, top: 0, right: 20, bottom: 0),
                     child: ElevatedButton(
                       onPressed: () async {
-                        if (_formfield.currentState!.validate()) {
-                          
-                        }
+                        if (_formfield.currentState!.validate()) {}
                       },
                       style: ElevatedButton.styleFrom(
                           backgroundColor: Colors.tealAccent[700]),
@@ -185,8 +184,12 @@ class SignUpScreen extends ConsumerWidget {
                                 builder: (context) => LoginScreen()));
                       }),
               ])),
-                const SizedBox(height: 40),
-              const Text('@Hanaang x ZG 2023', style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold, color: Colors.teal))
+              const SizedBox(height: 40),
+              const Text('@Hanaang x ZG 2023',
+                  style: TextStyle(
+                      fontSize: 14,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.teal))
             ],
           ),
         )));
