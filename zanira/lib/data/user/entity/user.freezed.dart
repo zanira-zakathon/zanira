@@ -22,15 +22,17 @@ User _$UserFromJson(Map<String, dynamic> json) {
 mixin _$User {
   @JsonKey(name: 'id')
   int get id => throw _privateConstructorUsedError;
-  @JsonKey(name: 'name')
+  @JsonKey(name: 'nama')
   String get name => throw _privateConstructorUsedError;
   @JsonKey(name: 'no_hp')
   String get noHp => throw _privateConstructorUsedError;
+  @JsonKey(name: 'image')
+  String? get image => throw _privateConstructorUsedError;
   @JsonKey(name: 'email')
   String? get email => throw _privateConstructorUsedError;
   @JsonKey(name: 'role')
   String get role => throw _privateConstructorUsedError;
-  @JsonKey(name: 'yayasan_id')
+  @JsonKey(name: 'foundation_id')
   int get foundationId => throw _privateConstructorUsedError;
   @JsonKey(name: 'token')
   String? get token => throw _privateConstructorUsedError;
@@ -47,11 +49,12 @@ abstract class $UserCopyWith<$Res> {
   @useResult
   $Res call(
       {@JsonKey(name: 'id') int id,
-      @JsonKey(name: 'name') String name,
+      @JsonKey(name: 'nama') String name,
       @JsonKey(name: 'no_hp') String noHp,
+      @JsonKey(name: 'image') String? image,
       @JsonKey(name: 'email') String? email,
       @JsonKey(name: 'role') String role,
-      @JsonKey(name: 'yayasan_id') int foundationId,
+      @JsonKey(name: 'foundation_id') int foundationId,
       @JsonKey(name: 'token') String? token});
 }
 
@@ -71,6 +74,7 @@ class _$UserCopyWithImpl<$Res, $Val extends User>
     Object? id = null,
     Object? name = null,
     Object? noHp = null,
+    Object? image = freezed,
     Object? email = freezed,
     Object? role = null,
     Object? foundationId = null,
@@ -89,6 +93,10 @@ class _$UserCopyWithImpl<$Res, $Val extends User>
           ? _value.noHp
           : noHp // ignore: cast_nullable_to_non_nullable
               as String,
+      image: freezed == image
+          ? _value.image
+          : image // ignore: cast_nullable_to_non_nullable
+              as String?,
       email: freezed == email
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
@@ -117,11 +125,12 @@ abstract class _$$_UserCopyWith<$Res> implements $UserCopyWith<$Res> {
   @useResult
   $Res call(
       {@JsonKey(name: 'id') int id,
-      @JsonKey(name: 'name') String name,
+      @JsonKey(name: 'nama') String name,
       @JsonKey(name: 'no_hp') String noHp,
+      @JsonKey(name: 'image') String? image,
       @JsonKey(name: 'email') String? email,
       @JsonKey(name: 'role') String role,
-      @JsonKey(name: 'yayasan_id') int foundationId,
+      @JsonKey(name: 'foundation_id') int foundationId,
       @JsonKey(name: 'token') String? token});
 }
 
@@ -137,6 +146,7 @@ class __$$_UserCopyWithImpl<$Res> extends _$UserCopyWithImpl<$Res, _$_User>
     Object? id = null,
     Object? name = null,
     Object? noHp = null,
+    Object? image = freezed,
     Object? email = freezed,
     Object? role = null,
     Object? foundationId = null,
@@ -155,6 +165,10 @@ class __$$_UserCopyWithImpl<$Res> extends _$UserCopyWithImpl<$Res, _$_User>
           ? _value.noHp
           : noHp // ignore: cast_nullable_to_non_nullable
               as String,
+      freezed == image
+          ? _value.image
+          : image // ignore: cast_nullable_to_non_nullable
+              as String?,
       freezed == email
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
@@ -180,11 +194,12 @@ class __$$_UserCopyWithImpl<$Res> extends _$UserCopyWithImpl<$Res, _$_User>
 class _$_User implements _User {
   const _$_User(
       @JsonKey(name: 'id') this.id,
-      @JsonKey(name: 'name') this.name,
+      @JsonKey(name: 'nama') this.name,
       @JsonKey(name: 'no_hp') this.noHp,
+      @JsonKey(name: 'image') this.image,
       @JsonKey(name: 'email') this.email,
       @JsonKey(name: 'role') this.role,
-      @JsonKey(name: 'yayasan_id') this.foundationId,
+      @JsonKey(name: 'foundation_id') this.foundationId,
       @JsonKey(name: 'token') this.token);
 
   factory _$_User.fromJson(Map<String, dynamic> json) => _$$_UserFromJson(json);
@@ -193,11 +208,14 @@ class _$_User implements _User {
   @JsonKey(name: 'id')
   final int id;
   @override
-  @JsonKey(name: 'name')
+  @JsonKey(name: 'nama')
   final String name;
   @override
   @JsonKey(name: 'no_hp')
   final String noHp;
+  @override
+  @JsonKey(name: 'image')
+  final String? image;
   @override
   @JsonKey(name: 'email')
   final String? email;
@@ -205,7 +223,7 @@ class _$_User implements _User {
   @JsonKey(name: 'role')
   final String role;
   @override
-  @JsonKey(name: 'yayasan_id')
+  @JsonKey(name: 'foundation_id')
   final int foundationId;
   @override
   @JsonKey(name: 'token')
@@ -213,7 +231,7 @@ class _$_User implements _User {
 
   @override
   String toString() {
-    return 'User(id: $id, name: $name, noHp: $noHp, email: $email, role: $role, foundationId: $foundationId, token: $token)';
+    return 'User(id: $id, name: $name, noHp: $noHp, image: $image, email: $email, role: $role, foundationId: $foundationId, token: $token)';
   }
 
   @override
@@ -224,6 +242,7 @@ class _$_User implements _User {
             (identical(other.id, id) || other.id == id) &&
             (identical(other.name, name) || other.name == name) &&
             (identical(other.noHp, noHp) || other.noHp == noHp) &&
+            (identical(other.image, image) || other.image == image) &&
             (identical(other.email, email) || other.email == email) &&
             (identical(other.role, role) || other.role == role) &&
             (identical(other.foundationId, foundationId) ||
@@ -234,7 +253,7 @@ class _$_User implements _User {
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
-      runtimeType, id, name, noHp, email, role, foundationId, token);
+      runtimeType, id, name, noHp, image, email, role, foundationId, token);
 
   @JsonKey(ignore: true)
   @override
@@ -253,11 +272,12 @@ class _$_User implements _User {
 abstract class _User implements User {
   const factory _User(
       @JsonKey(name: 'id') final int id,
-      @JsonKey(name: 'name') final String name,
+      @JsonKey(name: 'nama') final String name,
       @JsonKey(name: 'no_hp') final String noHp,
+      @JsonKey(name: 'image') final String? image,
       @JsonKey(name: 'email') final String? email,
       @JsonKey(name: 'role') final String role,
-      @JsonKey(name: 'yayasan_id') final int foundationId,
+      @JsonKey(name: 'foundation_id') final int foundationId,
       @JsonKey(name: 'token') final String? token) = _$_User;
 
   factory _User.fromJson(Map<String, dynamic> json) = _$_User.fromJson;
@@ -266,11 +286,14 @@ abstract class _User implements User {
   @JsonKey(name: 'id')
   int get id;
   @override
-  @JsonKey(name: 'name')
+  @JsonKey(name: 'nama')
   String get name;
   @override
   @JsonKey(name: 'no_hp')
   String get noHp;
+  @override
+  @JsonKey(name: 'image')
+  String? get image;
   @override
   @JsonKey(name: 'email')
   String? get email;
@@ -278,7 +301,7 @@ abstract class _User implements User {
   @JsonKey(name: 'role')
   String get role;
   @override
-  @JsonKey(name: 'yayasan_id')
+  @JsonKey(name: 'foundation_id')
   int get foundationId;
   @override
   @JsonKey(name: 'token')

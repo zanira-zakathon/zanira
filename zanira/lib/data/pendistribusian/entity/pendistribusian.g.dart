@@ -14,7 +14,7 @@ _$_Pendistribusian _$$_PendistribusianFromJson(Map<String, dynamic> json) =>
       json['tanggal'] as String,
       json['tempat'] as String,
       json['bentuk'] as String,
-      json['penanggung_jawab'] as String,
+      json['penanggung_jawab_id'] as int,
       json['verifikasi_status'] as int,
     );
 
@@ -26,6 +26,6 @@ Map<String, dynamic> _$$_PendistribusianToJson(_$_Pendistribusian instance) =>
       'tanggal': instance.tanggal,
       'tempat': instance.tempat,
       'bentuk': instance.bentuk,
-      'penanggung_jawab': instance.penanggungJawab,
+      'penanggung_jawab_id': instance.penanggungJawabId,
       'verifikasi_status': instance.verifikasiStatus,
     };

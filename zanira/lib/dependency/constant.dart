@@ -8,3 +8,6 @@ const announcementURL = '$baseURL/announcements';
 const collectionURL = '$baseURL/collectionts';
 const distributionURL = '$baseURL/distributions';
 const logoutURL = '$baseURL/logout';
+
+const ADMIN = 'admin';
+const MEMBER = 'member';

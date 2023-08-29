@@ -15,6 +15,13 @@ class CollectionController extends Controller
         ); 
     }
 
+    public function total(){
+        $total = Collection::sum('nominal');
+        return response(
+            $total, 200
+        );
+    }
+
     public function show($id){
         $collections = Collection::find($id);
         return response(

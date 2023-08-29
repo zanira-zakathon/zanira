@@ -32,8 +32,8 @@ mixin _$Pendistribusian {
   String get tempat => throw _privateConstructorUsedError;
   @JsonKey(name: 'bentuk')
   String get bentuk => throw _privateConstructorUsedError;
-  @JsonKey(name: 'penanggung_jawab')
-  String get penanggungJawab => throw _privateConstructorUsedError;
+  @JsonKey(name: 'penanggung_jawab_id')
+  int get penanggungJawabId => throw _privateConstructorUsedError;
   @JsonKey(name: 'verifikasi_status')
   int get verifikasiStatus => throw _privateConstructorUsedError;
 
@@ -56,7 +56,7 @@ abstract class $PendistribusianCopyWith<$Res> {
       @JsonKey(name: 'tanggal') String tanggal,
       @JsonKey(name: 'tempat') String tempat,
       @JsonKey(name: 'bentuk') String bentuk,
-      @JsonKey(name: 'penanggung_jawab') String penanggungJawab,
+      @JsonKey(name: 'penanggung_jawab_id') int penanggungJawabId,
       @JsonKey(name: 'verifikasi_status') int verifikasiStatus});
 }
 
@@ -79,7 +79,7 @@ class _$PendistribusianCopyWithImpl<$Res, $Val extends Pendistribusian>
     Object? tanggal = null,
     Object? tempat = null,
     Object? bentuk = null,
-    Object? penanggungJawab = null,
+    Object? penanggungJawabId = null,
     Object? verifikasiStatus = null,
   }) {
     return _then(_value.copyWith(
@@ -107,10 +107,10 @@ class _$PendistribusianCopyWithImpl<$Res, $Val extends Pendistribusian>
           ? _value.bentuk
           : bentuk // ignore: cast_nullable_to_non_nullable
               as String,
-      penanggungJawab: null == penanggungJawab
-          ? _value.penanggungJawab
-          : penanggungJawab // ignore: cast_nullable_to_non_nullable
-              as String,
+      penanggungJawabId: null == penanggungJawabId
+          ? _value.penanggungJawabId
+          : penanggungJawabId // ignore: cast_nullable_to_non_nullable
+              as int,
       verifikasiStatus: null == verifikasiStatus
           ? _value.verifikasiStatus
           : verifikasiStatus // ignore: cast_nullable_to_non_nullable
@@ -134,7 +134,7 @@ abstract class _$$_PendistribusianCopyWith<$Res>
       @JsonKey(name: 'tanggal') String tanggal,
       @JsonKey(name: 'tempat') String tempat,
       @JsonKey(name: 'bentuk') String bentuk,
-      @JsonKey(name: 'penanggung_jawab') String penanggungJawab,
+      @JsonKey(name: 'penanggung_jawab_id') int penanggungJawabId,
       @JsonKey(name: 'verifikasi_status') int verifikasiStatus});
 }
 
@@ -155,7 +155,7 @@ class __$$_PendistribusianCopyWithImpl<$Res>
     Object? tanggal = null,
     Object? tempat = null,
     Object? bentuk = null,
-    Object? penanggungJawab = null,
+    Object? penanggungJawabId = null,
     Object? verifikasiStatus = null,
   }) {
     return _then(_$_Pendistribusian(
@@ -183,10 +183,10 @@ class __$$_PendistribusianCopyWithImpl<$Res>
           ? _value.bentuk
           : bentuk // ignore: cast_nullable_to_non_nullable
               as String,
-      null == penanggungJawab
-          ? _value.penanggungJawab
-          : penanggungJawab // ignore: cast_nullable_to_non_nullable
-              as String,
+      null == penanggungJawabId
+          ? _value.penanggungJawabId
+          : penanggungJawabId // ignore: cast_nullable_to_non_nullable
+              as int,
       null == verifikasiStatus
           ? _value.verifikasiStatus
           : verifikasiStatus // ignore: cast_nullable_to_non_nullable
@@ -205,7 +205,7 @@ class _$_Pendistribusian implements _Pendistribusian {
       @JsonKey(name: 'tanggal') this.tanggal,
       @JsonKey(name: 'tempat') this.tempat,
       @JsonKey(name: 'bentuk') this.bentuk,
-      @JsonKey(name: 'penanggung_jawab') this.penanggungJawab,
+      @JsonKey(name: 'penanggung_jawab_id') this.penanggungJawabId,
       @JsonKey(name: 'verifikasi_status') this.verifikasiStatus);
 
   factory _$_Pendistribusian.fromJson(Map<String, dynamic> json) =>
@@ -230,15 +230,15 @@ class _$_Pendistribusian implements _Pendistribusian {
   @JsonKey(name: 'bentuk')
   final String bentuk;
   @override
-  @JsonKey(name: 'penanggung_jawab')
-  final String penanggungJawab;
+  @JsonKey(name: 'penanggung_jawab_id')
+  final int penanggungJawabId;
   @override
   @JsonKey(name: 'verifikasi_status')
   final int verifikasiStatus;
 
   @override
   String toString() {
-    return 'Pendistribusian(id: $id, kategori: $kategori, nominal: $nominal, tanggal: $tanggal, tempat: $tempat, bentuk: $bentuk, penanggungJawab: $penanggungJawab, verifikasiStatus: $verifikasiStatus)';
+    return 'Pendistribusian(id: $id, kategori: $kategori, nominal: $nominal, tanggal: $tanggal, tempat: $tempat, bentuk: $bentuk, penanggungJawabId: $penanggungJawabId, verifikasiStatus: $verifikasiStatus)';
   }
 
   @override
@@ -253,8 +253,8 @@ class _$_Pendistribusian implements _Pendistribusian {
             (identical(other.tanggal, tanggal) || other.tanggal == tanggal) &&
             (identical(other.tempat, tempat) || other.tempat == tempat) &&
             (identical(other.bentuk, bentuk) || other.bentuk == bentuk) &&
-            (identical(other.penanggungJawab, penanggungJawab) ||
-                other.penanggungJawab == penanggungJawab) &&
+            (identical(other.penanggungJawabId, penanggungJawabId) ||
+                other.penanggungJawabId == penanggungJawabId) &&
             (identical(other.verifikasiStatus, verifikasiStatus) ||
                 other.verifikasiStatus == verifikasiStatus));
   }
@@ -262,7 +262,7 @@ class _$_Pendistribusian implements _Pendistribusian {
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(runtimeType, id, kategori, nominal, tanggal,
-      tempat, bentuk, penanggungJawab, verifikasiStatus);
+      tempat, bentuk, penanggungJawabId, verifikasiStatus);
 
   @JsonKey(ignore: true)
   @override
@@ -286,7 +286,7 @@ abstract class _Pendistribusian implements Pendistribusian {
           @JsonKey(name: 'tanggal') final String tanggal,
           @JsonKey(name: 'tempat') final String tempat,
           @JsonKey(name: 'bentuk') final String bentuk,
-          @JsonKey(name: 'penanggung_jawab') final String penanggungJawab,
+          @JsonKey(name: 'penanggung_jawab_id') final int penanggungJawabId,
           @JsonKey(name: 'verifikasi_status') final int verifikasiStatus) =
       _$_Pendistribusian;
 
@@ -312,8 +312,8 @@ abstract class _Pendistribusian implements Pendistribusian {
   @JsonKey(name: 'bentuk')
   String get bentuk;
   @override
-  @JsonKey(name: 'penanggung_jawab')
-  String get penanggungJawab;
+  @JsonKey(name: 'penanggung_jawab_id')
+  int get penanggungJawabId;
   @override
   @JsonKey(name: 'verifikasi_status')
   int get verifikasiStatus;

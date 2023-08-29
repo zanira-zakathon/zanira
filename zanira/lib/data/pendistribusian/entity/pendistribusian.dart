@@ -12,7 +12,7 @@ class Pendistribusian with _$Pendistribusian {
           @JsonKey(name: 'tanggal') String tanggal,
           @JsonKey(name: 'tempat') String tempat,
           @JsonKey(name: 'bentuk') String bentuk,
-          @JsonKey(name: 'penanggung_jawab') String penanggungJawab,
+          @JsonKey(name: 'penanggung_jawab_id') int penanggungJawabId,
           @JsonKey(name: 'verifikasi_status') int verifikasiStatus) =
       _Pendistribusian;
 

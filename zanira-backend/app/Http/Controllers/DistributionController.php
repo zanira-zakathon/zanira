@@ -14,10 +14,26 @@ class DistributionController extends Controller
         );        
     }
 
+    public function indexUnverified(){
+        $foundation_id = auth()->user()->foundation->id;
+        $distributions = auth()->user()->foundation->distributions;
+        $distributions = Distribution::select('*')->where('foundation_id', '=', $foundation_id)->where('verifikasi_status', '=', '0')->get();
+        return response(
+            $distributions, 200
+        );        
+    }
+
+    public function total(){
+        $total = Distribution::sum('nominal');
+        return response(
+            $total, 200
+        );
+    }
+
     public function indexWithDate(Request $request){
         $foundation_id = auth()->user()->foundation->id;
         $year = $request['year'];
-        $distributions = Distribution::select('*')->where('foundation_id', '=', $foundation_id)->whereYear('tanggal','=', $year)->whereMonth('tanggal', '=', $request['month'])->get();
+        $distributions = Distribution::select('*')->where('foundation_id', '=', $foundation_id)->where('verifikasi_status', '=', '1')->whereYear('tanggal','=', $year)->whereMonth('tanggal', '=', $request['month'])->get();
         return response(
             $distributions
         );         

@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import 'package:zanira/screen/home/home_screen.dart';
 import 'package:zanira/screen/login_screen.dart';
 
 class splashscreen extends StatefulWidget {
@@ -16,12 +18,20 @@ class _splashscreenState extends State<splashscreen> {
   }
 
   _navigatetohome() async {
-    await Future.delayed(Duration(milliseconds: 3000), () {});
-    Navigator.pushReplacement(
-        context, MaterialPageRoute(builder: (context) => LoginScreen()));
+    SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
+    String token = sharedPreferences.getString('token') ?? '';
+    await Future.delayed(const Duration(milliseconds: 3000), () {
+      if (token.isEmpty) {
+      Navigator.pushReplacement(
+          context, MaterialPageRoute(builder: (context) => LoginScreen()));
+    } else {
+      Navigator.of(context).pushAndRemoveUntil(
+          MaterialPageRoute(builder: (context) => HomeScreen()),
+          (route) => false);
+      }
+    });
   }
 
-  // By Raisa: Tinggal change untuk ui nya. Splashscreen nya udah jalan.
   @override
   Widget build(BuildContext context) {
     return Scaffold(
