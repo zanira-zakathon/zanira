@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:zanira/style/color.dart';
 
 final ButtonStyle lightButton = ElevatedButton.styleFrom(
-  minimumSize: const Size(210, 30),
+  minimumSize: const Size.fromHeight(30),
   backgroundColor: lightbackground,
   elevation: 0,
   shape: const RoundedRectangleBorder(
@@ -24,7 +24,7 @@ final ButtonStyle lightButton_small = ElevatedButton.styleFrom(
 );
 
 final ButtonStyle darkButton = ElevatedButton.styleFrom(
-  minimumSize: const Size(235, 35),
+  minimumSize: const Size.fromHeight(30),
   backgroundColor: darkbackground,
   elevation: 0,
   shape: const RoundedRectangleBorder(
@@ -35,7 +35,7 @@ final ButtonStyle darkButton = ElevatedButton.styleFrom(
 );
 
 final ButtonStyle darkButton_home = ElevatedButton.styleFrom(
-  minimumSize: const Size(325, 45),
+  minimumSize: const Size.fromHeight(30),
   backgroundColor: darkbackground,
   elevation: 0,
   shape: const RoundedRectangleBorder(
