@@ -35,7 +35,7 @@ final ButtonStyle darkButton = ElevatedButton.styleFrom(
 );
 
 final ButtonStyle darkButton_home = ElevatedButton.styleFrom(
-  minimumSize: const Size.fromHeight(30),
+  minimumSize: const Size.fromHeight(40),
   backgroundColor: darkbackground,
   elevation: 0,
   shape: const RoundedRectangleBorder(
