@@ -186,19 +186,18 @@ class SignUpScreen extends ConsumerWidget {
   Widget dialog() {
     return Container();
   }
-
-//   Widget build(BuildContext context, ref) {
-//     final passToggle = ref.watch(passToggleProvider.notifier).state;
-//     return Scaffold(
-//         backgroundColor: Colors.white,
-//         resizeToAvoidBottomInset: false,
-//         //add appbar here
-//         body: Container(
-//             padding: EdgeInsets.all(35),
-//             //layout
-//             child: Column(
-//               mainAxisAlignment: MainAxisAlignment.start,
-//               crossAxisAlignment: CrossAxisAlignment.start,
+  // Widget build(BuildContext context, ref) {
+  //   final passToggle = ref.watch(passToggleProvider.notifier).state;
+  //   return Scaffold(
+  //       backgroundColor: Colors.white,
+  //       resizeToAvoidBottomInset: false,
+  //       //add appbar here
+  //       body: Container(
+  //           padding: EdgeInsets.all(35),
+  //           //layout
+  //           child: Column(
+  //             mainAxisAlignment: MainAxisAlignment.start,
+  //             crossAxisAlignment: CrossAxisAlignment.start,
 //               children: <Widget>[
 //                 SizedBox(height: 100),
 //                 Container(

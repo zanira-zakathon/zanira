@@ -143,7 +143,9 @@ class SignUpScreen extends ConsumerWidget {
                     height: 40,
                     child: ElevatedButton(
                         style: lightButton,
-                        onPressed: () {},
+                        onPressed: () {
+                          //ini isi apa gitu
+                        },
                         child: Text(
                           "Tambahkan",
                           style: TextStyle(color: blackprimary),
