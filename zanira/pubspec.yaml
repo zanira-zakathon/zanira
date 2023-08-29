@@ -46,6 +46,7 @@ dependencies:
   http: ^1.1.0
   shared_preferences: ^2.2.0
   flutter_smart_dialog: ^4.9.4
+  icon_decoration: any
 
 dev_dependencies:
   flutter_test:
