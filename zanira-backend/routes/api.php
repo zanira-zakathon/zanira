@@ -42,6 +42,7 @@ Route::group(['middleware' => ['auth:sanctum']],function(){
     Route::post('/announcements/{id}', [AnnouncementController::class, 'destroy']);
 
     Route::get('/collections', [CollectionController::class, 'index']);
+    Route::get('/collections-total', [CollectionController::class, 'total']);
     Route::post('/collections-date', [CollectionController::class, 'indexWithDate']);
     Route::get('/collections/{id}', [CollectionController::class, 'show']);
     Route::post('/collections', [CollectionController::class, 'create']);
@@ -49,7 +50,8 @@ Route::group(['middleware' => ['auth:sanctum']],function(){
     Route::post('/collections/{id}', [CollectionController::class, 'destroy']);
 
     Route::get('/distributions', [DistributionController::class, 'index']);
-    Route::post('/distributions-date', [DistributionController::class, 'indexWithDate']);
+    Route::get('/distributions-unverified', [DistributionController::class, 'index']);
+    Route::post('/distributions-verified', [DistributionController::class, 'indexWithDate']);
     Route::get('/distributions/{id}', [DistributionController::class, 'show']);
     Route::post('/distributions', [DistributionController::class, 'create']);
     Route::put('/distributions/{id}', [DistributionController::class, 'update']);

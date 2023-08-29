@@ -47,6 +47,7 @@ dependencies:
   shared_preferences: ^2.2.0
   flutter_smart_dialog: ^4.9.4
   icon_decoration: any
+  pull_to_refresh: ^2.0.0
 
 dev_dependencies:
   flutter_test:

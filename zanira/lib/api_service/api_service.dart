@@ -15,6 +15,7 @@ class APIService {
     SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
     String token = sharedPreferences.getString('token') ?? '';
     return {
+      'Accept': 'application/json',
       'Content-Type': 'application/json',
       'Authorization': 'Bearer $token',
     };
@@ -45,9 +46,10 @@ class APIService {
         error = "Error occurred while communicating with server";
         break;
     }
+    SmartDialog.showToast(error);
   }
 
   void handleUncaughtError() {
-    //TODO: showDialog when error;
+    SmartDialog.showToast('Unknown Error');
   }
 }
