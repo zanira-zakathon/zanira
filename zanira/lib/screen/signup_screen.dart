@@ -19,6 +19,13 @@ class SignUpScreen extends ConsumerWidget {
     return Scaffold(
         backgroundColor: Colors.white,
         resizeToAvoidBottomInset: false,
+        appBar: AppBar(
+          leadingWidth: 100,
+          actions: <Widget>[
+            IconButton(
+                onPressed: () {}, icon: Icon(Icons.arrow_circle_left_outlined))
+          ],
+        ),
         //add appbar here
         body: Container(
             padding: EdgeInsets.all(35),
