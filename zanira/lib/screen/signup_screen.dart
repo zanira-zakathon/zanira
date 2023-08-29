@@ -168,10 +168,10 @@ class SignUpScreen extends ConsumerWidget {
                     child: ElevatedButton(
                         style: lightButton,
                         onPressed: () {
-                          showDialog(
-                              context: context,
-                              builder: (context) =>
-                                  AlertDialog(content: dialog()));
+                          // showDialog(
+                          //     context: context,
+                          //     builder: (context) =>
+                          //         AlertDialog(content: dialog()));
                         },
                         child: Text(
                           "Daftar",
@@ -183,9 +183,9 @@ class SignUpScreen extends ConsumerWidget {
             )));
   }
 
-  Widget dialog() {
-    return Container();
-  }
+  // Widget dialog() {
+  //   return Container();
+  // }
   // Widget build(BuildContext context, ref) {
   //   final passToggle = ref.watch(passToggleProvider.notifier).state;
   //   return Scaffold(
