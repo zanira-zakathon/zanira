@@ -145,8 +145,6 @@ class LoginScreen extends ConsumerWidget {
                   children: <Widget>[
                     // Textview daftar sebagai
                     Container(
-                      //   child: Padding(
-                      // padding: EdgeInsets.only(top: 250),
                       child: Align(
                         alignment: Alignment.center,
                         child: Text(
@@ -158,7 +156,6 @@ class LoginScreen extends ConsumerWidget {
                           ),
                         ),
                       ),
-                      // )
                     ),
 
                     //button sign up
