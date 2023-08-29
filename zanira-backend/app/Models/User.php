@@ -21,7 +21,7 @@ class User extends Authenticatable
         'nama',
         'no_hp',
         'email',
-        'token_yayasan',
+        'foundation_id',
         'role',
         'password',
     ];
@@ -45,4 +45,8 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+    public function foundation(){
+        return $this->belongsTo(Foundation::class);
+    }
 }

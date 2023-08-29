@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Foundation;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -9,20 +10,52 @@ use Illuminate\Support\Facades\Auth;
 class AuthController extends Controller
 {
     //Register user
-    public function signup(Request $request)
+    public function signupAdmin(Request $request)
     {
         //validate fields
         $attrs = $request->validate([
-            'name' => 'required|string',
-            'email' => 'required|email|unique:users,email',
-            'password' => 'required'
+            'nama' => 'required|string',
+            'no_hp'=> 'required',
+            'password' => 'required',
         ]);
 
         //create user
-        $user = User::create([
+        $id = Foundation::select('*')->where('foundations.token', '=', $request['token_yayasan'])->first()->id;
 
-            'name' => $attrs['name'],
-            'email' => $attrs['email'],
+        $user = User::create([
+            'foundation_id'=>$id,
+            'nama' => $attrs['nama'],
+            'no_hp' => $attrs['no_hp'],
+            'email' => $request['email'],
+            'role'=>'admin',
+            'password' => bcrypt(($attrs['password']))
+        ]);
+
+        $user['token'] = $user->createToken('secret')->plainTextToken;
+
+        //return user & token in response
+        return response(
+        $user, 200);
+    }
+
+    public function signupMember(Request $request)
+    {
+        //validate fields
+        $attrs = $request->validate([
+            'nama' => 'required|string',
+            'no_hp'=> 'required',
+            'password' => 'required',
+        ]);
+
+        //create user
+        $id = Foundation::select('*')->where('foundations.token', '=', $request['token_yayasan'])->first()->id;
+
+        $user = User::create([
+            'foundation_id'=>$id,
+            'nama' => $attrs['nama'],
+            'no_hp' => $attrs['no_hp'],
+            'email' => $request['email'],
+            'role'=>'member',
             'password' => bcrypt(($attrs['password']))
         ]);
 
@@ -37,7 +70,7 @@ class AuthController extends Controller
     {
         //validate fields
         $attrs = $request->validate([
-            'no_hp' => 'no_hp',
+            'no_hp' => 'required',
             'password' => 'required'
         ]);
 
@@ -81,7 +114,7 @@ class AuthController extends Controller
         $user->update([
             'name'=>$request['name'],
             'email'=>$request['email'],
-            'image'=>$this->saveImage($request->image, 'profiles')
+            //'image'=>$this->saveImage($request->image, 'profiles')
         ]);
 
         // if($request['name']!=''){
