@@ -1,13 +1,13 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:zanira/screen/home_screen.dart';
+import 'package:zanira/screen/home/home_screen.dart';
 
 import 'package:zanira/screen/signup_screen.dart';
 import 'package:zanira/main.dart';
 import 'package:zanira/style/color.dart';
 import 'package:zanira/style/button.dart';
-import 'package:zanira/screen/home_screen.dart';
+import 'package:zanira/screen/home/home_screen.dart';
 import 'package:zanira/screen/signup_screen.dart';
 
 class LoginScreen extends ConsumerWidget {
