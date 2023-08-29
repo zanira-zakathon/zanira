@@ -13,8 +13,8 @@ class PendistribusianScreen extends ConsumerWidget {
     //pendistribusianViewModel = ref.watch(PendistribusianVMProvider.notifier);
     //state = ref.watch(PendistribusianVMProvider);
     return Scaffold(
-        //pendistribusianViewModel.updateAllData();
-        //Text(state.terkumpul);
-        );
+      //pendistribusianViewModel.updateAllData();
+      appBar: AppBar(),
+    );
   }
 }

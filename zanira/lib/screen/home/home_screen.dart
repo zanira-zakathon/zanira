@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_smart_dialog/flutter_smart_dialog.dart';
 import 'package:icon_decoration/icon_decoration.dart';
+import 'package:zanira/data/pendistribusian/entity/pendistribusian.dart';
 
 import 'package:zanira/screen/user_profile/user_profile_screen.dart';
 import 'package:zanira/screen/home/home_state.dart';
@@ -108,7 +109,7 @@ class HomeScreen extends ConsumerWidget {
                       padding: const EdgeInsets.all(5),
                       decoration: BoxDecoration(
                           border: Border.all(color: lightbackground, width: 5),
-                          borderRadius: const BorderRadius.all(
+                          borderRadius: BorderRadius.all(
                             Radius.circular(20),
                           )),
                       constraints: const BoxConstraints(maxHeight: 250),
@@ -181,19 +182,19 @@ class HomeScreen extends ConsumerWidget {
                       height: 20,
                     ),
 
-                    //Button untuk ke pengumpulan zakat
-                    ElevatedButton(
-                        onPressed: () {},
-                        style: darkButton_home,
-                        child: Text("Pengumpulan Zakat",
-                            style: TextStyle(fontWeight: FontWeight.bold))),
+                //Button untuk ke pengumpulan zakat
+                ElevatedButton(
+                    onPressed: () {},
+                    style: darkButton_home,
+                    child: Text("Pengumpulan Zakat",
+                        style: TextStyle(fontWeight: FontWeight.bold))),
 
-                    //Button untuk ke distribusi zakat
-                    ElevatedButton(
-                        onPressed: () {},
-                        style: darkButton_home,
-                        child: Text("Distribusi Zakat",
-                            style: TextStyle(fontWeight: FontWeight.bold))),
+                //Button untuk ke distribusi zakat
+                ElevatedButton(
+                    onPressed: () {},
+                    style: darkButton_home,
+                    child: Text("Distribusi Zakat",
+                        style: TextStyle(fontWeight: FontWeight.bold))),
 
                     SizedBox(
                       height: 20,
@@ -209,7 +210,7 @@ class HomeScreen extends ConsumerWidget {
                           color: lightbackground,
                           border: Border.all(color: lightbackground, width: 5),
                           borderRadius: BorderRadius.all(
-                            Radius.circular(20),
+                            Radius.circular(10),
                           )),
                       constraints: BoxConstraints(maxHeight: 150),
                       child: ListView.builder(
