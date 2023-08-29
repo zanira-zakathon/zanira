@@ -97,7 +97,7 @@ class HomeScreen extends ConsumerWidget {
                       decoration: BoxDecoration(
                           border: Border.all(color: lightbackground, width: 5),
                           borderRadius: BorderRadius.all(
-                            Radius.circular(20),
+                            Radius.circular(10),
                           )),
                       constraints: BoxConstraints(minHeight: 250),
                     )),
@@ -140,7 +140,7 @@ class HomeScreen extends ConsumerWidget {
                           color: lightbackground,
                           border: Border.all(color: lightbackground, width: 5),
                           borderRadius: BorderRadius.all(
-                            Radius.circular(20),
+                            Radius.circular(10),
                           )),
                       constraints: BoxConstraints(minHeight: 150),
                     )),
