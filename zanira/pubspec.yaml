@@ -41,7 +41,10 @@ dependencies:
   riverpod: ^2.3.9
   flutter_riverpod: ^2.3.10
   google_fonts: ^5.1.0
-  
+  json_annotation: ^4.8.1
+  get_it: ^7.6.0
+  http: ^1.1.0
+  shared_preferences: ^2.2.0
 
 dev_dependencies:
   flutter_test:
