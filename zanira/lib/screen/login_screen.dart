@@ -135,38 +135,58 @@ class LoginScreen extends ConsumerWidget {
               )),
 
               //Align to bottom
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                mainAxisSize: MainAxisSize.max,
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: <Widget>[
-                  // Textview daftar sebagai
-                  Container(
-                      child: Padding(
-                    padding: EdgeInsets.only(top: 250),
-                    child: Align(
-                      alignment: Alignment.center,
-                      child: Text(
-                        'Atau daftar sebagai',
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                          color: blackprimary,
-                          fontSize: 18,
+              Expanded(
+                  child: Align(
+                alignment: FractionalOffset.bottomCenter,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisSize: MainAxisSize.max,
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: <Widget>[
+                    // Textview daftar sebagai
+                    Container(
+                        child: Padding(
+                      padding: EdgeInsets.only(top: 250),
+                      child: Align(
+                        alignment: Alignment.center,
+                        child: Text(
+                          'Atau daftar sebagai',
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                            color: blackprimary,
+                            fontSize: 18,
+                          ),
                         ),
                       ),
-                    ),
-                  )),
+                    )),
 
-                  //button sign up
-                  Container(
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: <Widget>[
-                        //Button Sign Yayasan
-                        Expanded(
-                          child: Padding(
-                            padding: EdgeInsets.only(right: 10),
+                    //button sign up
+                    Container(
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: <Widget>[
+                          //Button Sign Yayasan
+                          Expanded(
+                            child: Padding(
+                              padding: EdgeInsets.only(right: 10),
+                              child: ElevatedButton(
+                                  style: lightButton_small,
+                                  onPressed: () {
+                                    Navigator.of(context).push(
+                                        MaterialPageRoute(
+                                            builder: (context) =>
+                                                SignUpScreen()));
+                                  },
+                                  child: Text(
+                                    "Yayasan",
+                                    style: TextStyle(color: blackprimary),
+                                  )),
+                            ),
+                          ),
+
+                          //Button Sign Anggota
+                          Expanded(
                             child: ElevatedButton(
                                 style: lightButton_small,
                                 onPressed: () {
@@ -174,30 +194,16 @@ class LoginScreen extends ConsumerWidget {
                                       builder: (context) => SignUpScreen()));
                                 },
                                 child: Text(
-                                  "Yayasan",
+                                  "Anggota",
                                   style: TextStyle(color: blackprimary),
                                 )),
-                          ),
-                        ),
-
-                        //Button Sign Anggota
-                        Expanded(
-                          child: ElevatedButton(
-                              style: lightButton_small,
-                              onPressed: () {
-                                Navigator.of(context).push(MaterialPageRoute(
-                                    builder: (context) => SignUpScreen()));
-                              },
-                              child: Text(
-                                "Anggota",
-                                style: TextStyle(color: blackprimary),
-                              )),
-                        )
-                      ],
-                    ),
-                  )
-                ],
-              ),
+                          )
+                        ],
+                      ),
+                    )
+                  ],
+                ),
+              ))
             ],
           ),
         ));
