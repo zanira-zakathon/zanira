@@ -32,6 +32,8 @@ mixin _$User {
   String get role => throw _privateConstructorUsedError;
   @JsonKey(name: 'yayasan_id')
   int get foundationId => throw _privateConstructorUsedError;
+  @JsonKey(name: 'token')
+  String? get token => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -49,7 +51,8 @@ abstract class $UserCopyWith<$Res> {
       @JsonKey(name: 'no_hp') String noHp,
       @JsonKey(name: 'email') String? email,
       @JsonKey(name: 'role') String role,
-      @JsonKey(name: 'yayasan_id') int foundationId});
+      @JsonKey(name: 'yayasan_id') int foundationId,
+      @JsonKey(name: 'token') String? token});
 }
 
 /// @nodoc
@@ -71,6 +74,7 @@ class _$UserCopyWithImpl<$Res, $Val extends User>
     Object? email = freezed,
     Object? role = null,
     Object? foundationId = null,
+    Object? token = freezed,
   }) {
     return _then(_value.copyWith(
       id: null == id
@@ -97,6 +101,10 @@ class _$UserCopyWithImpl<$Res, $Val extends User>
           ? _value.foundationId
           : foundationId // ignore: cast_nullable_to_non_nullable
               as int,
+      token: freezed == token
+          ? _value.token
+          : token // ignore: cast_nullable_to_non_nullable
+              as String?,
     ) as $Val);
   }
 }
@@ -113,7 +121,8 @@ abstract class _$$_UserCopyWith<$Res> implements $UserCopyWith<$Res> {
       @JsonKey(name: 'no_hp') String noHp,
       @JsonKey(name: 'email') String? email,
       @JsonKey(name: 'role') String role,
-      @JsonKey(name: 'yayasan_id') int foundationId});
+      @JsonKey(name: 'yayasan_id') int foundationId,
+      @JsonKey(name: 'token') String? token});
 }
 
 /// @nodoc
@@ -131,6 +140,7 @@ class __$$_UserCopyWithImpl<$Res> extends _$UserCopyWithImpl<$Res, _$_User>
     Object? email = freezed,
     Object? role = null,
     Object? foundationId = null,
+    Object? token = freezed,
   }) {
     return _then(_$_User(
       null == id
@@ -157,6 +167,10 @@ class __$$_UserCopyWithImpl<$Res> extends _$UserCopyWithImpl<$Res, _$_User>
           ? _value.foundationId
           : foundationId // ignore: cast_nullable_to_non_nullable
               as int,
+      freezed == token
+          ? _value.token
+          : token // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -170,7 +184,8 @@ class _$_User implements _User {
       @JsonKey(name: 'no_hp') this.noHp,
       @JsonKey(name: 'email') this.email,
       @JsonKey(name: 'role') this.role,
-      @JsonKey(name: 'yayasan_id') this.foundationId);
+      @JsonKey(name: 'yayasan_id') this.foundationId,
+      @JsonKey(name: 'token') this.token);
 
   factory _$_User.fromJson(Map<String, dynamic> json) => _$$_UserFromJson(json);
 
@@ -192,10 +207,13 @@ class _$_User implements _User {
   @override
   @JsonKey(name: 'yayasan_id')
   final int foundationId;
+  @override
+  @JsonKey(name: 'token')
+  final String? token;
 
   @override
   String toString() {
-    return 'User(id: $id, name: $name, noHp: $noHp, email: $email, role: $role, foundationId: $foundationId)';
+    return 'User(id: $id, name: $name, noHp: $noHp, email: $email, role: $role, foundationId: $foundationId, token: $token)';
   }
 
   @override
@@ -209,13 +227,14 @@ class _$_User implements _User {
             (identical(other.email, email) || other.email == email) &&
             (identical(other.role, role) || other.role == role) &&
             (identical(other.foundationId, foundationId) ||
-                other.foundationId == foundationId));
+                other.foundationId == foundationId) &&
+            (identical(other.token, token) || other.token == token));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, id, name, noHp, email, role, foundationId);
+  int get hashCode => Object.hash(
+      runtimeType, id, name, noHp, email, role, foundationId, token);
 
   @JsonKey(ignore: true)
   @override
@@ -238,7 +257,8 @@ abstract class _User implements User {
       @JsonKey(name: 'no_hp') final String noHp,
       @JsonKey(name: 'email') final String? email,
       @JsonKey(name: 'role') final String role,
-      @JsonKey(name: 'yayasan_id') final int foundationId) = _$_User;
+      @JsonKey(name: 'yayasan_id') final int foundationId,
+      @JsonKey(name: 'token') final String? token) = _$_User;
 
   factory _User.fromJson(Map<String, dynamic> json) = _$_User.fromJson;
 
@@ -260,6 +280,9 @@ abstract class _User implements User {
   @override
   @JsonKey(name: 'yayasan_id')
   int get foundationId;
+  @override
+  @JsonKey(name: 'token')
+  String? get token;
   @override
   @JsonKey(ignore: true)
   _$$_UserCopyWith<_$_User> get copyWith => throw _privateConstructorUsedError;

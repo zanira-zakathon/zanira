@@ -10,34 +10,8 @@ class User with _$User {
       @JsonKey(name: 'no_hp') String noHp,
       @JsonKey(name: 'email') String? email,
       @JsonKey(name: 'role') String role,
-      @JsonKey(name: 'yayasan_id') int foundationId) = _User;
+      @JsonKey(name: 'yayasan_id') int foundationId,
+      @JsonKey(name: 'token') String? token) = _User;
 
   factory User.fromJson(Map<String, dynamic> json) => _$UserFromJson(json);
 }
-
-// class User{
-//   int? id;
-//   String? name;
-//   String? image;
-//   String? email;
-//   String? token;
-
-//   User({
-//     this.id,
-//     this.name,
-//     this.image,
-//     this.email,
-//     this.token
-//   });
-
-//   //convert json data to user model
-//   factory User.fromJson(Map<String, dynamic> json){
-//     return User(
-//       id: json['user']['id'],
-//       name: json['user']['name'],
-//       image: json['user']['image'],
-//       email: json['user']['email'],
-//       token: json['token']
-//     );
-//   }
-// }

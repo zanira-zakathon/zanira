@@ -4,6 +4,8 @@ import 'package:zanira/data/pendistribusian/service/pendistribusian_service_impl
 
 import 'package:zanira/data/Pengumpulan/service/Pengumpulan_service.dart';
 import 'package:zanira/data/Pengumpulan/service/Pengumpulan_service_impl.dart';
+import 'package:zanira/data/user/service/user_service.dart';
+import 'package:zanira/data/user/service/user_service_impl.dart';
 
 final getIt = GetIt.instance;
 Future<void> setup() async {
@@ -14,11 +16,7 @@ Future<void> setup() async {
   // getIt.registerSingleton<PengumpulanServices>(PengumpulanServicesImpl(),
   //     instanceName: (PengumpulanServicesImpl).toString());
 
-  /// User Dependency
-  // getIt.registerSingleton<UserServices>(UserServicesImpl(),
-  //     instanceName: (UserServicesImpl).toString());
-  // getIt.registerSingleton<UserDatasource>(UserDatasourceImpl(),
-  //     instanceName: (UserDatasourceImpl).toString());
-  // getIt.registerSingleton<UserRepository>(UserRepositoryImpl(),
-  //     instanceName: (UserRepositoryImpl).toString());
+  // User Dependency
+  getIt.registerSingleton<UserServices>(UserServicesImpl(),
+      instanceName: (UserServicesImpl).toString());
 }
