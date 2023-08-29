@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:zanira/style/button.dart';
+import 'package:zanira/style/color.dart';
 
 class AkunScreen extends StatelessWidget {
   @override
@@ -15,7 +17,16 @@ class AkunScreen extends StatelessWidget {
             Container(
               child: Icon(Icons.person_2_outlined),
             ),
-            Container(child: Text('username'))
+            Container(child: Text('username')),
+            Container(
+              child: Center(
+                  child: Padding(
+                      padding: EdgeInsets.only(top: 80),
+                      child: Text(
+                        'Infirmasi akun',
+                        style: TextStyle(color: blackprimary, fontSize: 25),
+                      ))),
+            )
           ]),
         ));
   }

@@ -19,13 +19,6 @@ class SignUpScreen extends ConsumerWidget {
     return Scaffold(
         backgroundColor: Colors.white,
         resizeToAvoidBottomInset: false,
-        appBar: AppBar(
-          leadingWidth: 100,
-          actions: <Widget>[
-            IconButton(
-                onPressed: () {}, icon: Icon(Icons.arrow_circle_left_outlined))
-          ],
-        ),
         //add appbar here
         body: Container(
             padding: EdgeInsets.all(35),
@@ -34,7 +27,7 @@ class SignUpScreen extends ConsumerWidget {
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
-                SizedBox(height: 100),
+                SizedBox(height: 10),
                 Container(
                   child: Text(
                     'Nama lengkap',
@@ -293,5 +286,5 @@ class SignUpScreen extends ConsumerWidget {
 //                 //masukin button daftar
 //               ],
 //             )));
-  // }
+  //
 }
