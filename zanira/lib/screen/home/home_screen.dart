@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:icon_decoration/icon_decoration.dart';
+import 'package:zanira/data/pendistribusian/entity/pendistribusian.dart';
 
 import 'package:zanira/screen/akun/akun_screen.dart';
+import 'package:zanira/screen/pendistribusian/pendistribusian_screen.dart';
+import 'package:zanira/screen/pengumpulan/pengumpulan_screen.dart';
 import 'package:zanira/style/button.dart';
 import 'package:zanira/style/color.dart';
 
@@ -106,14 +109,20 @@ class HomeScreen extends ConsumerWidget {
 
                 //Button untuk ke pengumpulan zakat
                 ElevatedButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.of(context).push(MaterialPageRoute(
+                          builder: (context) => pengumpulanScreen()));
+                    },
                     style: darkButton_home,
                     child: Text("Pengumpulan Zakat",
                         style: TextStyle(fontWeight: FontWeight.bold))),
 
                 //Button untuk ke distribusi zakat
                 ElevatedButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.of(context).push(MaterialPageRoute(
+                          builder: (context) => PendistribusianScreen()));
+                    },
                     style: darkButton_home,
                     child: Text("Distribusi Zakat",
                         style: TextStyle(fontWeight: FontWeight.bold))),
