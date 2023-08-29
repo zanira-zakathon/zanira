@@ -19,8 +19,8 @@ use App\Http\Controllers\DistributionController;
 |
 */
 //public routes
-Route::post('/signupadmin', [AuthController::class, 'signupAdmin']);
-Route::post('/signupmember', [AuthController::class, 'signupMember']);
+Route::post('/signup-admin', [AuthController::class, 'signupAdmin']);
+Route::post('/signup-member', [AuthController::class, 'signupMember']);
 Route::post('/login', [AuthController::class, 'login']);
 Route::post('/foundations', [FoundationController::class, 'signup']);
     

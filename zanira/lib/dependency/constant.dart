@@ -1,5 +1,10 @@
-const baseURL = 'http://192.168.43.104:8080/api';
-const loginURL = baseURL + '/login';
-const signupURL = baseURL + '/signup';
-const logoutURL = baseURL + '/logout';
-const userURL = baseURL + '/user';
+const baseURL = 'http://192.168.43.104:8000/api';
+const loginURL = '$baseURL/login';
+const signupAdminURL = '$baseURL/signup-admin';
+const signupMemberURL = '$baseURL/signup-member';
+const userURL = '$baseURL/user';
+const foundationURL = '$baseURL/foundations';
+const announcementURL = '$baseURL/announcements';
+const collectionURL = '$baseURL/collectionts';
+const distributionURL = '$baseURL/distributions';
+const logoutURL = '$baseURL/logout';

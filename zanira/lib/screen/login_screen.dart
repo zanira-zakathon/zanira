@@ -1,8 +1,10 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:zanira/data/user/service/user_service.dart';
+import 'package:zanira/data/user/service/user_service_Impl.dart';
+import 'package:zanira/dependency/dependency.dart';
 import 'package:zanira/screen/home/home_screen.dart';
-
 import 'package:zanira/screen/signup_screen.dart';
 import 'package:zanira/main.dart';
 import 'package:zanira/style/color.dart';
@@ -14,11 +16,14 @@ class LoginScreen extends ConsumerWidget {
   final _formfield = GlobalKey<FormState>();
 
   final FocusNode _focusNodePassword = FocusNode();
-  final emailController = TextEditingController();
+  final noHpController = TextEditingController();
   final passController = TextEditingController();
 
   final passToggleProvider = StateProvider<bool>((ref) => false);
   bool loading = false;
+
+  UserServices userServices =
+      getIt<UserServices>(instanceName: (UserServicesImpl).toString());
 
   @override
   Widget build(BuildContext context, ref) {
@@ -61,7 +66,7 @@ class LoginScreen extends ConsumerWidget {
               //Textfield and Icon for Username/Nomor Telepon
               Container(
                 child: TextField(
-                  controller: emailController,
+                  controller: noHpController,
                   keyboardType: TextInputType.name,
                   decoration: InputDecoration(
                     prefixIcon: const Icon(Icons.person_outlined),
@@ -85,7 +90,7 @@ class LoginScreen extends ConsumerWidget {
               //Textfield and Icon for Password
               Container(
                 child: TextField(
-                  controller: emailController,
+                  controller: passController,
                   keyboardType: TextInputType.name,
                   obscureText: true,
                   decoration: InputDecoration(
@@ -102,8 +107,14 @@ class LoginScreen extends ConsumerWidget {
                   child: ElevatedButton(
                       style: darkButton,
                       onPressed: () {
-                        Navigator.of(context).push(MaterialPageRoute(
-                            builder: (context) => HomeScreen()));
+                        userServices
+                            .login(noHpController.text, passController.text)
+                            .then((value) {
+                          if (value) {
+                            Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(
+                                builder: (context) => HomeScreen()), (route)=>false);
+                          }
+                        });
                       },
                       child: Text(
                         "Masuk",

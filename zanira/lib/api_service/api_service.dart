@@ -1,11 +1,13 @@
 import 'package:http/http.dart' as http;
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:flutter_smart_dialog/flutter_smart_dialog.dart';
 
 class APIService {
   final _client = http.Client();
   var timeOut = const Duration(seconds: 60);
 
   http.Client get client {
+    SmartDialog.showLoading();
     return _client;
   }
 
