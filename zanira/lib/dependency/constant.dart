@@ -5,9 +5,12 @@ const signupMemberURL = '$baseURL/signup-member';
 const userURL = '$baseURL/user';
 const foundationURL = '$baseURL/foundations';
 const announcementURL = '$baseURL/announcements';
-const collectionURL = '$baseURL/collectionts';
+const collectionURL = '$baseURL/collections';
 const distributionURL = '$baseURL/distributions';
 const logoutURL = '$baseURL/logout';
 
 const ADMIN = 'admin';
 const MEMBER = 'member';
+
+const FITRAH = 'fitrah';
+//const 

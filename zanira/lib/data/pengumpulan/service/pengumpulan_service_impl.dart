@@ -1,4 +1,6 @@
+import 'package:fl_chart/src/chart/bar_chart/bar_chart.dart';
 import 'package:zanira/api_service/api_service.dart';
+import 'package:zanira/data/barchart/mybarchart.dart';
 import 'package:zanira/data/pengumpulan/entity/pengumpulan.dart';
 import 'package:zanira/data/pengumpulan/service/pengumpulan_service.dart';
 import 'package:zanira/dependency/constant.dart';
@@ -8,11 +10,12 @@ import 'dart:convert';
 class PengumpulanServicesImpl extends APIService
     implements PengumpulanServices {
   @override
-  Future<List<Pengumpulan>> pengumpulanList() async {
+  Future<List<Pengumpulan>> pengumpulanList(String month, String year) async {
     try {
       final response = await client
-          .get(Uri.parse('$collectionURL-date'),
-              headers: await requestHeaders())
+          .post(Uri.parse('$collectionURL-date'),
+              headers: await requestHeaders(),
+              body: json.encode({"month": month, "year": year}))
           .whenComplete(() => SmartDialog.dismiss());
 
       switch (response.statusCode) {
@@ -64,7 +67,15 @@ class PengumpulanServicesImpl extends APIService
       final response = await client
           .post(Uri.parse(collectionURL),
               headers: await requestHeaders(),
-              body: json.encode({'kategori': kategori, 'nominal':nominal, 'tanggal':tanggal, 'bentuk':bentuk, 'nama_muzakki': nama_muzakki, 'no_muzakki':no_muzakki, 'tanggungan': tanggungan}))
+              body: json.encode({
+                'kategori': kategori,
+                'nominal': nominal,
+                'tanggal': tanggal,
+                'bentuk': bentuk,
+                'nama_muzakki': nama_muzakki,
+                'no_muzakki': no_muzakki,
+                'tanggungan': tanggungan
+              }))
           .whenComplete(() => SmartDialog.dismiss());
 
       switch (response.statusCode) {
@@ -76,5 +87,33 @@ class PengumpulanServicesImpl extends APIService
     } catch (e) {
       handleUncaughtError();
     }
+  }
+
+  @override
+  Future<List<MyBarChart>> getYearlyPengumpulan(String year) async {
+    try {
+      final response = await client
+          .post(Uri.parse('$collectionURL-yearly'),
+              headers: await requestHeaders(),
+              body: json.encode({"year": year}))
+          .whenComplete(() => SmartDialog.dismiss());
+
+      switch (response.statusCode) {
+        case 200:
+        
+          print(response.body);
+          List<MyBarChart> list = (jsonDecode(response.body) as List)
+              .map((item) => MyBarChart.fromJson(item))
+              .toList();
+          print(response.body);
+          print(list);
+          return list;
+        default:
+          handleError(response.statusCode);
+      }
+    } catch (e) {
+      handleUncaughtError();
+    }
+    return [];
   }
 }

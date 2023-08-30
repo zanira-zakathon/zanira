@@ -43,6 +43,7 @@ Route::group(['middleware' => ['auth:sanctum']],function(){
 
     Route::get('/collections', [CollectionController::class, 'index']);
     Route::get('/collections-total', [CollectionController::class, 'total']);
+    Route::post('/collections-yearly', [CollectionController::class, 'yearlyNominal']);
     Route::post('/collections-date', [CollectionController::class, 'indexWithDate']);
     Route::get('/collections/{id}', [CollectionController::class, 'show']);
     Route::post('/collections', [CollectionController::class, 'create']);

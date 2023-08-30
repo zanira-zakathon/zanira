@@ -29,6 +29,15 @@ class CollectionController extends Controller
         );
     }
 
+    public function yearlyNominal(Request $request){
+        $foundation_id = auth()->user()->foundation->id;
+        $year = $request['year'];
+        $collections = Collection::groupBy('month')->selectRaw('MONTH(tanggal) as month, sum(nominal) as nominal')->where('foundation_id', '=', $foundation_id)->whereYear('tanggal','=', $year)->get();
+        return response(
+            $collections
+        );
+    }
+
     public function indexWithDate(Request $request){
         $foundation_id = auth()->user()->foundation->id;
         $year = $request['year'];

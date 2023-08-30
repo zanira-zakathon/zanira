@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_smart_dialog/flutter_smart_dialog.dart';
 import 'package:icon_decoration/icon_decoration.dart';
 import 'package:zanira/data/pendistribusian/entity/pendistribusian.dart';
+import 'package:zanira/screen/pengumpulan/pengumpulan_screen.dart';
 
 import 'package:zanira/screen/user_profile/user_profile_screen.dart';
 import 'package:zanira/screen/home/home_state.dart';
@@ -76,7 +77,10 @@ class HomeScreen extends ConsumerWidget {
                             ]),
                       ),
                       onTap: () {
-                        Navigator.push(context, MaterialPageRoute(builder: ((context) => UserProfile())));
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: ((context) => UserProfile())));
                       }),
                 ),
               ),
@@ -182,19 +186,25 @@ class HomeScreen extends ConsumerWidget {
                       height: 20,
                     ),
 
-                //Button untuk ke pengumpulan zakat
-                ElevatedButton(
-                    onPressed: () {},
-                    style: darkButton_home,
-                    child: Text("Pengumpulan Zakat",
-                        style: TextStyle(fontWeight: FontWeight.bold))),
+                    //Button untuk ke pengumpulan zakat
+                    ElevatedButton(
+                        onPressed: () {
+                          Navigator.of(context).push(MaterialPageRoute(
+                              builder: (context) => pengumpulanScreen()));
+                        },
+                        style: darkButton_home,
+                        child: Text("Pengumpulan Zakat",
+                            style: TextStyle(fontWeight: FontWeight.bold))),
 
-                //Button untuk ke distribusi zakat
-                ElevatedButton(
-                    onPressed: () {},
-                    style: darkButton_home,
-                    child: Text("Distribusi Zakat",
-                        style: TextStyle(fontWeight: FontWeight.bold))),
+                    //Button untuk ke distribusi zakat
+                    ElevatedButton(
+                        onPressed: () {
+                          Navigator.of(context).push(MaterialPageRoute(
+                              builder: (context) => pengumpulanScreen()));
+                        },
+                        style: darkButton_home,
+                        child: Text("Distribusi Zakat",
+                            style: TextStyle(fontWeight: FontWeight.bold))),
 
                     SizedBox(
                       height: 20,

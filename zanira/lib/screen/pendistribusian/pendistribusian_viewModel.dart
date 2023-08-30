@@ -1,4 +1,7 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:zanira/data/pendistribusian/service/pendistribusian_service.dart';
+import 'package:zanira/data/pendistribusian/service/pendistribusian_service_impl.dart';
+import 'package:zanira/dependency/dependency.dart';
 import 'package:zanira/screen/pendistribusian/pendistribusian_state.dart';
 
 //viewmodel
@@ -10,7 +13,9 @@ class PendistribusianViewModel extends StateNotifier<PendistribusianState> {
   PendistribusianViewModel()
       : super(const PendistribusianState(monthFilter: ''));
 
-  
+  PendistribusianServices pendistribusianServices = getIt<PendistribusianServices>(
+      instanceName: (PendistribusianServicesImpl).toString());
+
 
   Future<void> updateAllData() async {
     

@@ -22,7 +22,10 @@ PengumpulanState _$PengumpulanStateFromJson(Map<String, dynamic> json) {
 mixin _$PengumpulanState {
   double get terkumpul => throw _privateConstructorUsedError;
   String get monthFilter => throw _privateConstructorUsedError;
-  List<Pengumpulan> get pengumpulanList => throw _privateConstructorUsedError;
+  String get yearFilter => throw _privateConstructorUsedError;
+  String get kategori => throw _privateConstructorUsedError;
+  List<MyBarChart> get yearlyNominal => throw _privateConstructorUsedError;
+  List<Pengumpulan> get monthlyList => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -39,7 +42,10 @@ abstract class $PengumpulanStateCopyWith<$Res> {
   $Res call(
       {double terkumpul,
       String monthFilter,
-      List<Pengumpulan> pengumpulanList});
+      String yearFilter,
+      String kategori,
+      List<MyBarChart> yearlyNominal,
+      List<Pengumpulan> monthlyList});
 }
 
 /// @nodoc
@@ -57,7 +63,10 @@ class _$PengumpulanStateCopyWithImpl<$Res, $Val extends PengumpulanState>
   $Res call({
     Object? terkumpul = null,
     Object? monthFilter = null,
-    Object? pengumpulanList = null,
+    Object? yearFilter = null,
+    Object? kategori = null,
+    Object? yearlyNominal = null,
+    Object? monthlyList = null,
   }) {
     return _then(_value.copyWith(
       terkumpul: null == terkumpul
@@ -68,9 +77,21 @@ class _$PengumpulanStateCopyWithImpl<$Res, $Val extends PengumpulanState>
           ? _value.monthFilter
           : monthFilter // ignore: cast_nullable_to_non_nullable
               as String,
-      pengumpulanList: null == pengumpulanList
-          ? _value.pengumpulanList
-          : pengumpulanList // ignore: cast_nullable_to_non_nullable
+      yearFilter: null == yearFilter
+          ? _value.yearFilter
+          : yearFilter // ignore: cast_nullable_to_non_nullable
+              as String,
+      kategori: null == kategori
+          ? _value.kategori
+          : kategori // ignore: cast_nullable_to_non_nullable
+              as String,
+      yearlyNominal: null == yearlyNominal
+          ? _value.yearlyNominal
+          : yearlyNominal // ignore: cast_nullable_to_non_nullable
+              as List<MyBarChart>,
+      monthlyList: null == monthlyList
+          ? _value.monthlyList
+          : monthlyList // ignore: cast_nullable_to_non_nullable
               as List<Pengumpulan>,
     ) as $Val);
   }
@@ -87,7 +108,10 @@ abstract class _$$_PengumpulanStateCopyWith<$Res>
   $Res call(
       {double terkumpul,
       String monthFilter,
-      List<Pengumpulan> pengumpulanList});
+      String yearFilter,
+      String kategori,
+      List<MyBarChart> yearlyNominal,
+      List<Pengumpulan> monthlyList});
 }
 
 /// @nodoc
@@ -103,7 +127,10 @@ class __$$_PengumpulanStateCopyWithImpl<$Res>
   $Res call({
     Object? terkumpul = null,
     Object? monthFilter = null,
-    Object? pengumpulanList = null,
+    Object? yearFilter = null,
+    Object? kategori = null,
+    Object? yearlyNominal = null,
+    Object? monthlyList = null,
   }) {
     return _then(_$_PengumpulanState(
       terkumpul: null == terkumpul
@@ -114,9 +141,21 @@ class __$$_PengumpulanStateCopyWithImpl<$Res>
           ? _value.monthFilter
           : monthFilter // ignore: cast_nullable_to_non_nullable
               as String,
-      pengumpulanList: null == pengumpulanList
-          ? _value._pengumpulanList
-          : pengumpulanList // ignore: cast_nullable_to_non_nullable
+      yearFilter: null == yearFilter
+          ? _value.yearFilter
+          : yearFilter // ignore: cast_nullable_to_non_nullable
+              as String,
+      kategori: null == kategori
+          ? _value.kategori
+          : kategori // ignore: cast_nullable_to_non_nullable
+              as String,
+      yearlyNominal: null == yearlyNominal
+          ? _value._yearlyNominal
+          : yearlyNominal // ignore: cast_nullable_to_non_nullable
+              as List<MyBarChart>,
+      monthlyList: null == monthlyList
+          ? _value._monthlyList
+          : monthlyList // ignore: cast_nullable_to_non_nullable
               as List<Pengumpulan>,
     ));
   }
@@ -128,8 +167,12 @@ class _$_PengumpulanState implements _PengumpulanState {
   const _$_PengumpulanState(
       {this.terkumpul = 0,
       required this.monthFilter,
-      final List<Pengumpulan> pengumpulanList = const []})
-      : _pengumpulanList = pengumpulanList;
+      required this.yearFilter,
+      this.kategori = FITRAH,
+      final List<MyBarChart> yearlyNominal = const [],
+      final List<Pengumpulan> monthlyList = const []})
+      : _yearlyNominal = yearlyNominal,
+        _monthlyList = monthlyList;
 
   factory _$_PengumpulanState.fromJson(Map<String, dynamic> json) =>
       _$$_PengumpulanStateFromJson(json);
@@ -139,18 +182,32 @@ class _$_PengumpulanState implements _PengumpulanState {
   final double terkumpul;
   @override
   final String monthFilter;
-  final List<Pengumpulan> _pengumpulanList;
+  @override
+  final String yearFilter;
   @override
   @JsonKey()
-  List<Pengumpulan> get pengumpulanList {
-    if (_pengumpulanList is EqualUnmodifiableListView) return _pengumpulanList;
+  final String kategori;
+  final List<MyBarChart> _yearlyNominal;
+  @override
+  @JsonKey()
+  List<MyBarChart> get yearlyNominal {
+    if (_yearlyNominal is EqualUnmodifiableListView) return _yearlyNominal;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_pengumpulanList);
+    return EqualUnmodifiableListView(_yearlyNominal);
+  }
+
+  final List<Pengumpulan> _monthlyList;
+  @override
+  @JsonKey()
+  List<Pengumpulan> get monthlyList {
+    if (_monthlyList is EqualUnmodifiableListView) return _monthlyList;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_monthlyList);
   }
 
   @override
   String toString() {
-    return 'PengumpulanState(terkumpul: $terkumpul, monthFilter: $monthFilter, pengumpulanList: $pengumpulanList)';
+    return 'PengumpulanState(terkumpul: $terkumpul, monthFilter: $monthFilter, yearFilter: $yearFilter, kategori: $kategori, yearlyNominal: $yearlyNominal, monthlyList: $monthlyList)';
   }
 
   @override
@@ -162,14 +219,26 @@ class _$_PengumpulanState implements _PengumpulanState {
                 other.terkumpul == terkumpul) &&
             (identical(other.monthFilter, monthFilter) ||
                 other.monthFilter == monthFilter) &&
+            (identical(other.yearFilter, yearFilter) ||
+                other.yearFilter == yearFilter) &&
+            (identical(other.kategori, kategori) ||
+                other.kategori == kategori) &&
             const DeepCollectionEquality()
-                .equals(other._pengumpulanList, _pengumpulanList));
+                .equals(other._yearlyNominal, _yearlyNominal) &&
+            const DeepCollectionEquality()
+                .equals(other._monthlyList, _monthlyList));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, terkumpul, monthFilter,
-      const DeepCollectionEquality().hash(_pengumpulanList));
+  int get hashCode => Object.hash(
+      runtimeType,
+      terkumpul,
+      monthFilter,
+      yearFilter,
+      kategori,
+      const DeepCollectionEquality().hash(_yearlyNominal),
+      const DeepCollectionEquality().hash(_monthlyList));
 
   @JsonKey(ignore: true)
   @override
@@ -189,7 +258,10 @@ abstract class _PengumpulanState implements PengumpulanState {
   const factory _PengumpulanState(
       {final double terkumpul,
       required final String monthFilter,
-      final List<Pengumpulan> pengumpulanList}) = _$_PengumpulanState;
+      required final String yearFilter,
+      final String kategori,
+      final List<MyBarChart> yearlyNominal,
+      final List<Pengumpulan> monthlyList}) = _$_PengumpulanState;
 
   factory _PengumpulanState.fromJson(Map<String, dynamic> json) =
       _$_PengumpulanState.fromJson;
@@ -199,7 +271,13 @@ abstract class _PengumpulanState implements PengumpulanState {
   @override
   String get monthFilter;
   @override
-  List<Pengumpulan> get pengumpulanList;
+  String get yearFilter;
+  @override
+  String get kategori;
+  @override
+  List<MyBarChart> get yearlyNominal;
+  @override
+  List<Pengumpulan> get monthlyList;
   @override
   @JsonKey(ignore: true)
   _$$_PengumpulanStateCopyWith<_$_PengumpulanState> get copyWith =>
