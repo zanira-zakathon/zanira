@@ -4,6 +4,12 @@ import 'package:zanira/style/button.dart';
 import 'package:zanira/style/color.dart';
 
 class inputdistribusiscreen extends ConsumerWidget {
+  final nominalController = TextEditingController();
+  final tanggalController = TextEditingController();
+  final bulanController = TextEditingController();
+  final tahunController = TextEditingController();
+  final tujuanController = TextEditingController();
+
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return Scaffold(
@@ -45,6 +51,7 @@ class inputdistribusiscreen extends ConsumerWidget {
                 //Textfield nominal
                 Container(
                     child: TextField(
+                  controller: nominalController,
                   style: TextStyle(color: blackprimary),
                   decoration: InputDecoration(
                       contentPadding:
@@ -69,18 +76,57 @@ class inputdistribusiscreen extends ConsumerWidget {
                   ),
                 ),
 
-                //Textfield
+                //Textfield Tanggal
                 Container(
-                    child: TextField(
-                  style: TextStyle(color: blackprimary),
-                  decoration: InputDecoration(
-                      contentPadding:
-                          EdgeInsets.symmetric(vertical: 3, horizontal: 10),
-                      border: OutlineInputBorder(
-                          borderSide: BorderSide(color: lightbackground),
-                          borderRadius: BorderRadius.all(Radius.circular(10)))),
-                )),
-
+                  height: 50,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: [
+                      SizedBox(
+                        width: 100,
+                        child: TextField(
+                            controller: tanggalController,
+                            style: TextStyle(color: blackprimary),
+                            decoration: InputDecoration(
+                                contentPadding: EdgeInsets.symmetric(
+                                    vertical: 3, horizontal: 10),
+                                border: OutlineInputBorder(
+                                    borderSide:
+                                        BorderSide(color: lightbackground),
+                                    borderRadius: BorderRadius.all(
+                                        Radius.circular(10))))),
+                      ),
+                      SizedBox(
+                        width: 100,
+                        child: TextField(
+                            controller: bulanController,
+                            style: TextStyle(color: blackprimary),
+                            decoration: InputDecoration(
+                                contentPadding: EdgeInsets.symmetric(
+                                    vertical: 3, horizontal: 10),
+                                border: OutlineInputBorder(
+                                    borderSide:
+                                        BorderSide(color: lightbackground),
+                                    borderRadius: BorderRadius.all(
+                                        Radius.circular(10))))),
+                      ),
+                      SizedBox(
+                        width: 100,
+                        child: TextField(
+                            controller: tahunController,
+                            style: TextStyle(color: blackprimary),
+                            decoration: InputDecoration(
+                                contentPadding: EdgeInsets.symmetric(
+                                    vertical: 3, horizontal: 10),
+                                border: OutlineInputBorder(
+                                    borderSide:
+                                        BorderSide(color: lightbackground),
+                                    borderRadius: BorderRadius.all(
+                                        Radius.circular(10))))),
+                      ),
+                    ],
+                  ),
+                ),
                 //Padding
                 SizedBox(height: 10),
 
@@ -149,7 +195,7 @@ class inputdistribusiscreen extends ConsumerWidget {
                   ),
                 ),
 
-                //Textfield Kategori
+                //Textfield Bentuk
                 Container(
                   child: TextButton(
                       style: TextButton.styleFrom(
@@ -202,9 +248,10 @@ class inputdistribusiscreen extends ConsumerWidget {
                   ),
                 ),
 
-                //Textfield tujuan (optional:hint)
+                //Textfield tujuan
                 Container(
                     child: TextField(
+                  controller: tujuanController,
                   style: TextStyle(color: blackprimary),
                   decoration: InputDecoration(
                       contentPadding:

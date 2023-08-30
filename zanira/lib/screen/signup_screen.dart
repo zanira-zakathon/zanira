@@ -142,7 +142,7 @@ class SignUpScreen extends ConsumerWidget {
                 //Textfield Token
                 Container(
                     child: TextField(
-                  controller: tokenController,
+                  controller: tokenController..text = token,
                   style: TextStyle(color: blackprimary),
                   decoration: InputDecoration(
                       contentPadding:
