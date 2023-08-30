@@ -53,67 +53,67 @@ class UserProfile extends ConsumerWidget {
               child: Form(
                   key: _formfield,
                   child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: <Widget>[
-                    const SizedBox(
-                      height: 50,
-                    ),
-                    Center(
-                      child: GestureDetector(
-                          child: Stack(children: [
-                            state.user.image != null
-                                ? Container(
-                                    width: 200,
-                                    height: 200,
-                                    decoration: BoxDecoration(
-                                        borderRadius:
-                                            BorderRadius.circular(100),
-                                        image: DecorationImage(
-                                            image: NetworkImage(
-                                                '${state.user.image}'),
-                                            fit: BoxFit.cover)))
-                                : const CircleAvatar(
-                                    radius: 100,
-                                    backgroundColor: Colors.grey,
-                                    child: Icon(
-                                      Icons.account_circle,
-                                      color: Colors.white,
-                                      size: 100,
-                                    )),
-                            Positioned(
-                                bottom: 0,
-                                right: 0,
-                                child: CircleAvatar(
-                                  backgroundColor: Colors.tealAccent[700],
-                                  child: const Icon(
-                                    Icons.camera_alt,
-                                    color: Colors.white,
-                                  ),
-                                ))
-                          ]),
-                          onTap: () async {
-                            // String image = await getImage();
-                            // if (image != '') {
-                            //   // userProfileViewModel.updateProfile(
-                            //   //     state.user.name,
-                            //   //     image,
-                            //   //     state.user.email);
-                            // }
-                          }),
-                    ),
-                    SizedBox(
-                      height: 10,
-                    ),
-                    Text(state.user.name),
-                    GestureDetector(
-                      onTap: () {},
-                      child: const Text('Informasi akun'),
-                    ),
-                    GestureDetector(
-                      onTap: () {},
-                      child: const Text('Informasi Yayasan'),
-                    ),
-                  ]))),
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: <Widget>[
+                        const SizedBox(
+                          height: 50,
+                        ),
+                        Center(
+                          child: GestureDetector(
+                              child: Stack(children: [
+                                state.user.image != null
+                                    ? Container(
+                                        width: 200,
+                                        height: 200,
+                                        decoration: BoxDecoration(
+                                            borderRadius:
+                                                BorderRadius.circular(100),
+                                            image: DecorationImage(
+                                                image: NetworkImage(
+                                                    '${state.user.image}'),
+                                                fit: BoxFit.cover)))
+                                    : const CircleAvatar(
+                                        radius: 100,
+                                        backgroundColor: Colors.grey,
+                                        child: Icon(
+                                          Icons.account_circle,
+                                          color: Colors.white,
+                                          size: 100,
+                                        )),
+                                Positioned(
+                                    bottom: 0,
+                                    right: 0,
+                                    child: CircleAvatar(
+                                      backgroundColor: Colors.tealAccent[700],
+                                      child: const Icon(
+                                        Icons.camera_alt,
+                                        color: Colors.white,
+                                      ),
+                                    ))
+                              ]),
+                              onTap: () async {
+                                // String image = await getImage();
+                                // if (image != '') {
+                                //   // userProfileViewModel.updateProfile(
+                                //   //     state.user.name,
+                                //   //     image,
+                                //   //     state.user.email);
+                                // }
+                              }),
+                        ),
+                        SizedBox(
+                          height: 10,
+                        ),
+                        Text(state.user.name),
+                        GestureDetector(
+                          onTap: () {},
+                          child: const Text('Informasi akun'),
+                        ),
+                        GestureDetector(
+                          onTap: () {},
+                          child: const Text('Informasi Yayasan'),
+                        ),
+                      ]))),
         ));
   }
 }

@@ -20,6 +20,15 @@ class SignUpScreen extends ConsumerWidget {
         backgroundColor: Colors.white,
         resizeToAvoidBottomInset: false,
         //add appbar here
+        appBar: AppBar(
+          backgroundColor: Colors.white,
+          leadingWidth: 100,
+          leading: Icon(
+            Icons.arrow_circle_left_outlined,
+            color: blackprimary,
+            size: 35,
+          ),
+        ),
         body: Container(
             padding: EdgeInsets.all(35),
             //layout
