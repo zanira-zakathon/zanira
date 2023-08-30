@@ -36,138 +36,246 @@ class SignUpScreen extends ConsumerWidget {
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
-                SizedBox(height: 10),
-                Container(
-                  child: Text(
-                    'Nama lengkap',
-                    style: TextStyle(
-                      color: blackprimary,
-                      fontSize: 12,
-                      fontWeight: FontWeight.w300,
-                    ),
-                  ),
-                ),
-                Container(
-                    child: TextField(
-                  style: TextStyle(color: blackprimary),
-                  decoration: InputDecoration(
-                      contentPadding:
-                          EdgeInsets.symmetric(vertical: 3, horizontal: 10),
-                      border: OutlineInputBorder(
-                          borderSide: BorderSide(color: lightbackground),
-                          borderRadius: BorderRadius.all(Radius.circular(10)))),
-                )),
-                SizedBox(height: 10),
-                Container(
-                  child: Text(
-                    'Nomor telpon',
-                    style: TextStyle(
-                      color: blackprimary,
-                      fontSize: 12,
-                      fontWeight: FontWeight.w300,
-                    ),
-                  ),
-                ),
-                Container(
-                    child: TextField(
-                  style: TextStyle(color: blackprimary),
-                  decoration: InputDecoration(
-                      contentPadding:
-                          EdgeInsets.symmetric(vertical: 3, horizontal: 10),
-                      border: OutlineInputBorder(
-                          borderSide: BorderSide(color: lightbackground),
-                          borderRadius: BorderRadius.all(Radius.circular(10)))),
-                )),
-                SizedBox(height: 10),
-                Container(
-                  child: Text(
-                    'Email',
-                    style: TextStyle(
-                      color: blackprimary,
-                      fontSize: 12,
-                      fontWeight: FontWeight.w300,
-                    ),
-                  ),
-                ),
-                Container(
-                    child: TextField(
-                  style: TextStyle(color: blackprimary),
-                  decoration: InputDecoration(
-                      hintText: 'Opsional',
-                      hintStyle: TextStyle(
-                        fontSize: 13,
-                        color: Color(0xFF999999),
-                      ),
-                      contentPadding:
-                          EdgeInsets.symmetric(vertical: 3, horizontal: 10),
-                      border: OutlineInputBorder(
-                          borderSide: BorderSide(color: lightbackground),
-                          borderRadius: BorderRadius.all(Radius.circular(10)))),
-                )),
-                SizedBox(height: 10),
-                Container(
-                  child: Text(
-                    'Token yayasan',
-                    style: TextStyle(
-                      color: blackprimary,
-                      fontSize: 12,
-                      fontWeight: FontWeight.w300,
-                    ),
-                  ),
-                ),
-                Container(
-                    child: TextField(
-                  style: TextStyle(color: blackprimary),
-                  decoration: InputDecoration(
-                      contentPadding:
-                          EdgeInsets.symmetric(vertical: 3, horizontal: 10),
-                      border: OutlineInputBorder(
-                          borderSide: BorderSide(color: lightbackground),
-                          borderRadius: BorderRadius.all(Radius.circular(10)))),
-                )),
-                SizedBox(height: 10),
-                Container(
-                  child: Text(
-                    'Password',
-                    style: TextStyle(
-                      color: blackprimary,
-                      fontSize: 12,
-                      fontWeight: FontWeight.w300,
-                    ),
-                  ),
-                ),
-                Container(
-                    child: TextField(
-                  style: TextStyle(color: blackprimary),
-                  decoration: InputDecoration(
-                      contentPadding:
-                          EdgeInsets.symmetric(vertical: 3, horizontal: 10),
-                      border: OutlineInputBorder(
-                          borderSide: BorderSide(color: lightbackground),
-                          borderRadius: BorderRadius.all(Radius.circular(10)))),
-                )),
-                SizedBox(height: 10),
-                Container(
-                  child: Text(
-                    'Konfirmasi password',
-                    style: TextStyle(
-                      color: blackprimary,
-                      fontSize: 12,
-                      fontWeight: FontWeight.w300,
-                    ),
-                  ),
-                ),
-                Container(
-                    child: TextField(
-                  style: TextStyle(color: blackprimary),
-                  decoration: InputDecoration(
-                      contentPadding:
-                          EdgeInsets.symmetric(vertical: 3, horizontal: 10),
-                      border: OutlineInputBorder(
-                          borderSide: BorderSide(color: lightbackground),
-                          borderRadius: BorderRadius.all(Radius.circular(10)))),
-                )),
+                // SizedBox(height: 10),
+                // Container(
+                //   child: Text(
+                //     'Nama lengkap',
+                //     style: TextStyle(
+                //       color: blackprimary,
+                //       fontSize: 12,
+                //       fontWeight: FontWeight.w300,
+                //     ),
+                //   ),
+                // ),
+                // Container(
+                //     child: TextField(
+                //   style: TextStyle(color: blackprimary),
+                //   decoration: InputDecoration(
+                //       contentPadding:
+                //           EdgeInsets.symmetric(vertical: 3, horizontal: 10),
+                //       border: OutlineInputBorder(
+                //           borderSide: BorderSide(color: lightbackground),
+                //           borderRadius: BorderRadius.all(Radius.circular(10)))),
+                // )),
+                // SizedBox(height: 10),
+                // Container(
+                //   child: Text(
+                //     'Nomor telpon',
+                //     style: TextStyle(
+                //       color: blackprimary,
+                //       fontSize: 12,
+                //       fontWeight: FontWeight.w300,
+                //     ),
+                //   ),
+                // ),
+                // Container(
+                //     child: TextField(
+                //   style: TextStyle(color: blackprimary),
+                //   decoration: InputDecoration(
+                //       contentPadding:
+                //           EdgeInsets.symmetric(vertical: 3, horizontal: 10),
+                //       border: OutlineInputBorder(
+                //           borderSide: BorderSide(color: lightbackground),
+                //           borderRadius: BorderRadius.all(Radius.circular(10)))),
+                // )),
+                // SizedBox(height: 10),
+                // Container(
+                //   child: Text(
+                //     'Email',
+                //     style: TextStyle(
+                //       color: blackprimary,
+                //       fontSize: 12,
+                //       fontWeight: FontWeight.w300,
+                //     ),
+                //   ),
+                // ),
+                // Container(
+                //     child: TextField(
+                //   style: TextStyle(color: blackprimary),
+                //   decoration: InputDecoration(
+                //       hintText: 'Opsional',
+                //       hintStyle: TextStyle(
+                //         fontSize: 13,
+                //         color: Color(0xFF999999),
+                //       ),
+                //       contentPadding:
+                //           EdgeInsets.symmetric(vertical: 3, horizontal: 10),
+                //       border: OutlineInputBorder(
+                //           borderSide: BorderSide(color: lightbackground),
+                //           borderRadius: BorderRadius.all(Radius.circular(10)))),
+                // )),
+                // SizedBox(height: 10),
+                // Container(
+                //   child: Text(
+                //     'Token yayasan',
+                //     style: TextStyle(
+                //       color: blackprimary,
+                //       fontSize: 12,
+                //       fontWeight: FontWeight.w300,
+                //     ),
+                //   ),
+                // ),
+                // Container(
+                //     child: TextField(
+                //   style: TextStyle(color: blackprimary),
+                //   decoration: InputDecoration(
+                //       contentPadding:
+                //           EdgeInsets.symmetric(vertical: 3, horizontal: 10),
+                //       border: OutlineInputBorder(
+                //           borderSide: BorderSide(color: lightbackground),
+                //           borderRadius: BorderRadius.all(Radius.circular(10)))),
+                // )),
+                // SizedBox(height: 10),
+                // Container(
+                //   child: Text(
+                //     'Password',
+                //     style: TextStyle(
+                //       color: blackprimary,
+                //       fontSize: 12,
+                //       fontWeight: FontWeight.w300,
+                //     ),
+                //   ),
+                // ),
+                // Container(
+                //     child: TextField(
+                //   style: TextStyle(color: blackprimary),
+                //   decoration: InputDecoration(
+                //       contentPadding:
+                //           EdgeInsets.symmetric(vertical: 3, horizontal: 10),
+                //       border: OutlineInputBorder(
+                //           borderSide: BorderSide(color: lightbackground),
+                //           borderRadius: BorderRadius.all(Radius.circular(10)))),
+                // )),
+                // SizedBox(height: 10),
+                // Container(
+                //   child: Text(
+                //     'Konfirmasi password',
+                //     style: TextStyle(
+                //       color: blackprimary,
+                //       fontSize: 12,
+                //       fontWeight: FontWeight.w300,
+                //     ),
+                //   ),
+                // ),
+                // Container(
+                //     child: TextField(
+                //   style: TextStyle(color: blackprimary),
+                //   decoration: InputDecoration(
+                //       contentPadding:
+                //           EdgeInsets.symmetric(vertical: 3, horizontal: 10),
+                //       border: OutlineInputBorder(
+                //           borderSide: BorderSide(color: lightbackground),
+                //           borderRadius: BorderRadius.all(Radius.circular(10)))),
+                // )),
                 SizedBox(height: 65),
+
+                //here starts sign up yayasan (only)
+                SizedBox(height: 10),
+                Container(
+                  child: Text(
+                    'Alamat lengkap',
+                    style: TextStyle(
+                      color: blackprimary,
+                      fontSize: 12,
+                      fontWeight: FontWeight.w300,
+                    ),
+                  ),
+                ),
+                Container(
+                    child: TextField(
+                  style: TextStyle(color: blackprimary),
+                  decoration: InputDecoration(
+                      contentPadding:
+                          EdgeInsets.symmetric(vertical: 3, horizontal: 10),
+                      border: OutlineInputBorder(
+                          borderSide: BorderSide(color: lightbackground),
+                          borderRadius: BorderRadius.all(Radius.circular(10)))),
+                )),
+                SizedBox(height: 10),
+                Container(
+                  child: Text(
+                    'Provinsi',
+                    style: TextStyle(
+                      color: blackprimary,
+                      fontSize: 12,
+                      fontWeight: FontWeight.w300,
+                    ),
+                  ),
+                ),
+                Container(
+                    child: TextField(
+                  style: TextStyle(color: blackprimary),
+                  decoration: InputDecoration(
+                      contentPadding:
+                          EdgeInsets.symmetric(vertical: 3, horizontal: 10),
+                      border: OutlineInputBorder(
+                          borderSide: BorderSide(color: lightbackground),
+                          borderRadius: BorderRadius.all(Radius.circular(10)))),
+                )),
+                SizedBox(height: 10),
+                Container(
+                  child: Text(
+                    'Kabupaten/Kota',
+                    style: TextStyle(
+                      color: blackprimary,
+                      fontSize: 12,
+                      fontWeight: FontWeight.w300,
+                    ),
+                  ),
+                ),
+                Container(
+                    child: TextField(
+                  style: TextStyle(color: blackprimary),
+                  decoration: InputDecoration(
+                      contentPadding:
+                          EdgeInsets.symmetric(vertical: 3, horizontal: 10),
+                      border: OutlineInputBorder(
+                          borderSide: BorderSide(color: lightbackground),
+                          borderRadius: BorderRadius.all(Radius.circular(10)))),
+                )),
+                SizedBox(height: 10),
+                Container(
+                  child: Text(
+                    'Kecamatan',
+                    style: TextStyle(
+                      color: blackprimary,
+                      fontSize: 12,
+                      fontWeight: FontWeight.w300,
+                    ),
+                  ),
+                ),
+                Container(
+                    child: TextField(
+                  style: TextStyle(color: blackprimary),
+                  decoration: InputDecoration(
+                      contentPadding:
+                          EdgeInsets.symmetric(vertical: 3, horizontal: 10),
+                      border: OutlineInputBorder(
+                          borderSide: BorderSide(color: lightbackground),
+                          borderRadius: BorderRadius.all(Radius.circular(10)))),
+                )),
+                SizedBox(height: 10),
+                Container(
+                  child: Text(
+                    'Kode pos',
+                    style: TextStyle(
+                      color: blackprimary,
+                      fontSize: 12,
+                      fontWeight: FontWeight.w300,
+                    ),
+                  ),
+                ),
+                Container(
+                    child: TextField(
+                  style: TextStyle(color: blackprimary),
+                  decoration: InputDecoration(
+                      contentPadding:
+                          EdgeInsets.symmetric(vertical: 3, horizontal: 10),
+                      border: OutlineInputBorder(
+                          borderSide: BorderSide(color: lightbackground),
+                          borderRadius: BorderRadius.all(Radius.circular(10)))),
+                )),
+                //here ends sign up yayasan  (only)
                 //masukin button daftar
                 Container(
                     child: Padding(
