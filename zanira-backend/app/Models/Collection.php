@@ -17,7 +17,9 @@ class Collection extends Model
         'bentuk',
         'nama_muzakki',
         'no_muzakki',
-        'tanggungan'
+        'tanggungan',
+        'tujuan',
+        'penanggung_jawab_id',
     ];
 
     public function foundation(){

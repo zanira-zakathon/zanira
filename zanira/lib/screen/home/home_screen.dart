@@ -4,7 +4,7 @@ import 'package:flutter_smart_dialog/flutter_smart_dialog.dart';
 import 'package:icon_decoration/icon_decoration.dart';
 import 'package:zanira/data/pendistribusian/entity/pendistribusian.dart';
 import 'package:zanira/screen/pengumpulan/pengumpulan_screen.dart';
-
+import 'package:zanira/screen/pendistribusian/pendistribusian_screen.dart';
 import 'package:zanira/screen/user_profile/user_profile_screen.dart';
 import 'package:zanira/screen/home/home_state.dart';
 import 'package:zanira/screen/home/home_viewModel.dart';
@@ -126,6 +126,8 @@ class HomeScreen extends ConsumerWidget {
                                       context: context,
                                       builder: (context) {
                                         return AlertDialog(
+                                            title: Text(state
+                                                .announcementList[index].title),
                                             content: Container(
                                                 height: 300,
                                                 color: Colors.white,
@@ -134,18 +136,16 @@ class HomeScreen extends ConsumerWidget {
                                                         CrossAxisAlignment
                                                             .start,
                                                     children: [
-                                                      Row(
-                                                        mainAxisAlignment:
-                                                            MainAxisAlignment
-                                                                .spaceBetween,
-                                                        children: [
-                                                          Text(state
-                                                              .announcementList[
-                                                                  index]
-                                                              .title),
-                                                          Text(
-                                                              '${state.announcementList[index].createdAt}')
-                                                        ],
+                                                      Text('${state.announcementList[index].createdAt}'
+                                                              .split(' ')
+                                                              .first +
+                                                          ' ' +
+                                                          '${state.announcementList[index].createdAt}'
+                                                              .split(' ')
+                                                              .last
+                                                              .substring(0, 5)),
+                                                      SizedBox(
+                                                        height: 10,
                                                       ),
                                                       Text(state
                                                           .announcementList[
@@ -170,8 +170,14 @@ class HomeScreen extends ConsumerWidget {
                                                 Text(state
                                                     .announcementList[index]
                                                     .title),
-                                                Text(
-                                                    '${state.announcementList[index].createdAt}')
+                                                Text('${state.announcementList[index].createdAt}'
+                                                        .split(' ')
+                                                        .first +
+                                                    ' ' +
+                                                    '${state.announcementList[index].createdAt}'
+                                                        .split(' ')
+                                                        .last
+                                                        .substring(0, 5))
                                               ],
                                             ),
                                             Text(state
@@ -200,7 +206,7 @@ class HomeScreen extends ConsumerWidget {
                     ElevatedButton(
                         onPressed: () {
                           Navigator.of(context).push(MaterialPageRoute(
-                              builder: (context) => pengumpulanScreen()));
+                              builder: (context) => PendistribusianScreen()));
                         },
                         style: darkButton_home,
                         child: Text("Distribusi Zakat",
@@ -228,12 +234,48 @@ class HomeScreen extends ConsumerWidget {
                           itemCount: state.pendistribusianPlanList.length,
                           itemBuilder: (context, index) {
                             return ListTile(
-                                leading: Text(state
-                                    .pendistribusianPlanList[index].kategori),
-                                title: Text(state
-                                    .pendistribusianPlanList[index].tanggal),
-                                trailing: Text(state
-                                    .pendistribusianPlanList[index].tempat));
+                                onTap: () {
+                                  showDialog(
+                                      context: context,
+                                      builder: (context) => AlertDialog(
+                                            title:
+                                                Text('Status Pendistribusian'),
+                                            actions: [
+                                              TextButton(
+                                                  style: darkButton,
+                                                  onPressed: () {
+                                                    homeViewModel
+                                                        .updateDistributionStatus(
+                                                            state
+                                                                .pendistribusianPlanList[
+                                                                    index]
+                                                                .id,
+                                                            '1')
+                                                        .then((value) {
+                                                      homeViewModel
+                                                          .updateAllData();
+                                                      Navigator.of(context)
+                                                          .pop();
+                                                    });
+                                                  },
+                                                  child: Text(
+                                                    'Tandai telah dilaksanakan ?',
+                                                    style: TextStyle(
+                                                        color: Colors.white),
+                                                  ))
+                                            ],
+                                          ));
+                                },
+                                title: Text('Pendistribusian zakat ' +
+                                    state.pendistribusianPlanList[index]
+                                        .kategori +
+                                    ' di ' +
+                                    state
+                                        .pendistribusianPlanList[index].tempat +
+                                    '.'),
+                                subtitle: Text('Akan dilaksanakan pada: ' +
+                                    state.pendistribusianPlanList[index]
+                                        .tanggal));
                           }),
                     ) //),
                   ],

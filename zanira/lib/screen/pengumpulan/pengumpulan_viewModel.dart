@@ -72,4 +72,29 @@ class PengumpulanViewModel extends StateNotifier<PengumpulanState> {
         monthFilter: month,
         yearFilter: year);
   }
+
+  Future<void> updateKategori(String kategori) async {
+    SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
+    String month = sharedPreferences.getString('pendistribusian_month') ?? '';
+    String year = sharedPreferences.getString('pendistribusian_year') ?? '';
+    List<Pengumpulan> monthlyList;
+    if (month.isNotEmpty && year.isNotEmpty) {
+      monthlyList =
+          await pengumpulanServices.pengumpulanList(month, year);
+      state = state.copyWith(monthlyList:       monthlyList
+          .where((element) => element.kategori.toLowerCase() == kategori).toList()
+, kategori: kategori);
+    } else {
+      sharedPreferences.setString('pengumpulan_month', currentMonth);
+      sharedPreferences.setString('pengumpulan_year', currentYear);
+      monthlyList = await pengumpulanServices.pengumpulanList(
+          currentMonth, currentYear);
+      state = state.copyWith(
+          monthlyList:       monthlyList
+          .where((element) => element.kategori.toLowerCase() == kategori).toList(),
+          monthFilter: currentMonth,
+          yearFilter: currentYear,
+          kategori: kategori);
+    }
+  }
 }

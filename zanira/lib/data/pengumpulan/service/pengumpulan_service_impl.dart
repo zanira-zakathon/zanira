@@ -58,10 +58,11 @@ class PengumpulanServicesImpl extends APIService
   Future<void> createPengumpulan(
       String kategori,
       int nominal,
-      DateTime tanggal,
+      String tanggal,
       String bentuk,
       String nama_muzakki,
       String no_muzakki,
+      String tujuan,
       int tanggungan) async {
     try {
       final response = await client
@@ -74,7 +75,8 @@ class PengumpulanServicesImpl extends APIService
                 'bentuk': bentuk,
                 'nama_muzakki': nama_muzakki,
                 'no_muzakki': no_muzakki,
-                'tanggungan': tanggungan
+                'tanggungan': tanggungan,
+                'tujuan': tujuan
               }))
           .whenComplete(() => SmartDialog.dismiss());
 

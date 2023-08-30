@@ -49,6 +49,7 @@ class CollectionController extends Controller
 
     public function create(Request $request){
         $foundation_id = auth()->user()->foundation->id;
+        $penanggung_jawab_id = auth()->user()->id;
         $collection = Collection::create([
             'foundation_id'=>$foundation_id,
             'kategori'=>$request['kategori'],
@@ -57,7 +58,9 @@ class CollectionController extends Controller
             'bentuk'=>$request['bentuk'],
             'nama_muzakki'=>$request['nama_muzakki'],
             'no_muzakki'=>$request['no_muzakki'],
-            'tanggungan'=>$request['tanggungan']
+            'tanggungan'=>$request['tanggungan'],
+            'tujuan'=>$request['tujuan'],
+            'penanggung_jawab_id'=>$penanggung_jawab_id,
         ]);
 
         return response(

@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:zanira/data/pengumpulan/service/pengumpulan_service.dart';
+import 'package:zanira/data/pengumpulan/service/pengumpulan_service_impl.dart';
+import 'package:zanira/dependency/dependency.dart';
 import 'package:zanira/style/button.dart';
 import 'package:zanira/style/color.dart';
 
@@ -16,10 +19,19 @@ class inputpengumpulanscreenState
   final bulanController = TextEditingController();
   final tahunController = TextEditingController();
   final tujuanController = TextEditingController();
+  
+  //banyak 
   final banyakController = TextEditingController();
+
+  final namaMuzakkiController = TextEditingController();
+  final noMuzakkiController = TextEditingController();
+  final tanggunganController = TextEditingController();
 
   String bentukText = " ";
   String kategoriText = " ";
+
+  PengumpulanServices pengumpulanServices = getIt<PengumpulanServices>(
+      instanceName: (PengumpulanServicesImpl).toString());
 
   @override
   Widget build(BuildContext context) {
@@ -71,6 +83,19 @@ class inputpengumpulanscreenState
                           minimumSize: const Size.fromHeight(50),
                           side: BorderSide(color: blackprimary)),
                       onPressed: () {
+                        pengumpulanServices.createPengumpulan(
+                            kategoriText,
+                            int.parse(nominalController.text),
+                            tahunController.text +
+                                '-' +
+                                bulanController.text +
+                                '-' +
+                                tanggalController.text,
+                            bentukText,
+                            namaMuzakkiController.text,
+                            noMuzakkiController.text,
+                            tujuanController.text,
+                            int.parse(tanggunganController.text));
                         showDialog(
                             context: context,
                             builder: (context) => AlertDialog(

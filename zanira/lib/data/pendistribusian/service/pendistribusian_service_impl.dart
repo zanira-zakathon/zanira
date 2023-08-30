@@ -1,3 +1,4 @@
+import 'package:zanira/data/barchart/mybarchart.dart';
 import 'package:zanira/data/pendistribusian/entity/pendistribusian.dart';
 import 'package:zanira/data/pendistribusian/service/pendistribusian_service.dart';
 import 'package:zanira/api_service/api_service.dart';
@@ -30,10 +31,11 @@ class PendistribusianServicesImpl extends APIService
     return [];
   }
 
+  @override
   Future<int> getPendistribusianTotal() async {
     try {
       final response = await client
-          .get(Uri.parse('$distributionURL-verified'),
+          .get(Uri.parse('$distributionURL-total'),
               headers: await requestHeaders())
           .whenComplete(() => SmartDialog.dismiss());
 
@@ -62,6 +64,9 @@ class PendistribusianServicesImpl extends APIService
 
       switch (response.statusCode) {
         case 200:
+          print(month);
+          print(year);
+          print(response.body);
           List<Pendistribusian> list = (jsonDecode(response.body) as List)
               .map((item) => Pendistribusian.fromJson(item))
               .toList();
@@ -75,20 +80,47 @@ class PendistribusianServicesImpl extends APIService
     return [];
   }
 
-  
+  @override
+  Future<List<MyBarChart>> getYearlyPendistribusian(String year) async {
+    try {
+      final response = await client
+          .post(Uri.parse('$distributionURL-yearly'),
+              headers: await requestHeaders(),
+              body: json.encode({"year": year}))
+          .whenComplete(() => SmartDialog.dismiss());
+
+      switch (response.statusCode) {
+        case 200:
+          print(response.body);
+          List<MyBarChart> list = (jsonDecode(response.body) as List)
+              .map((item) => MyBarChart.fromJson(item))
+              .toList();
+          print(response.body);
+          print(list);
+          return list;
+        default:
+          handleError(response.statusCode);
+      }
+    } catch (e) {
+      handleUncaughtError();
+    }
+    return [];
+  }
 
   @override
-  Future<void> createPendistribusian(
-      String kategori,
-      int nominal,
-      DateTime tanggal,
-      String bentuk,
-      String tempat) async {
+  Future<void> createPendistribusian(String kategori, int nominal,
+      String tanggal, String bentuk, String tempat) async {
     try {
       final response = await client
           .post(Uri.parse(distributionURL),
               headers: await requestHeaders(),
-              body: json.encode({'kategori': kategori, 'nominal': nominal, 'tanggal':tanggal, 'bentuk':bentuk, 'tempat':tempat}))
+              body: json.encode({
+                'kategori': kategori,
+                'nominal': nominal,
+                'tanggal': tanggal,
+                'bentuk': bentuk,
+                'tempat': tempat
+              }))
           .whenComplete(() => SmartDialog.dismiss());
 
       switch (response.statusCode) {
@@ -101,7 +133,7 @@ class PendistribusianServicesImpl extends APIService
       handleUncaughtError();
     }
   }
-  
+
   @override
   Future<void> updatePendistribusianStatus(int id, String status) async {
     try {

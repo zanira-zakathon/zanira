@@ -10,10 +10,12 @@ class Pengumpulan with _$Pengumpulan {
     @JsonKey(name: 'kategori') String kategori,
     @JsonKey(name: 'nominal') int nominal,
     @JsonKey(name: 'tanggal') String tanggal,
+    @JsonKey(name: 'tujuan') String? tujuan,
     @JsonKey(name: 'bentuk') String bentuk,
+    @JsonKey(name: 'penanggung_jawab_id') int penanggungJawabId,
     @JsonKey(name: 'nama_muzakki') String namaMuzakki,
     @JsonKey(name: 'no_muzakki') String noMuzakki,
-    @JsonKey(name: 'tanggungan') int tanggungan    
+    @JsonKey(name: 'tanggungan') int tanggungan,    
     ) = _Pengumpulan;
 
   factory Pengumpulan.fromJson(Map<String, dynamic> json) => _$PengumpulanFromJson(json);

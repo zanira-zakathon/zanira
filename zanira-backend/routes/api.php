@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Distribution;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
@@ -51,8 +52,10 @@ Route::group(['middleware' => ['auth:sanctum']],function(){
     Route::post('/collections/{id}', [CollectionController::class, 'destroy']);
 
     Route::get('/distributions', [DistributionController::class, 'index']);
-    Route::get('/distributions-unverified', [DistributionController::class, 'index']);
+    Route::get('/distributions-total', [DistributionController::class, 'total']);
+    Route::get('/distributions-unverified', [DistributionController::class, 'indexUnverified']);
     Route::post('/distributions-verified', [DistributionController::class, 'indexWithDate']);
+    Route::post('/distributions-yearly', [DistributionController::class, 'yearlyNominal']);
     Route::get('/distributions/{id}', [DistributionController::class, 'show']);
     Route::post('/distributions', [DistributionController::class, 'create']);
     Route::put('/distributions/{id}', [DistributionController::class, 'update']);

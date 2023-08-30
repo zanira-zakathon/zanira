@@ -2,10 +2,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
+import 'package:zanira/screen/input_pengumpulan_screen.dart';
 import 'package:zanira/screen/pengumpulan/pengumpulan_state.dart';
 import 'package:zanira/screen/pengumpulan/pengumpulan_viewModel.dart';
 import 'package:zanira/style/color.dart';
 import 'package:fl_chart/fl_chart.dart';
+import 'package:zanira/dependency/constant.dart';
 
 class pengumpulanScreen extends ConsumerWidget {
   late PengumpulanViewModel pengumpulanViewModel;
@@ -79,6 +81,7 @@ class pengumpulanScreen extends ConsumerWidget {
                     ],
                   ),
                 ),
+
 
                 //Padding
                 SizedBox(height: 10),
@@ -333,8 +336,19 @@ class pengumpulanScreen extends ConsumerWidget {
                                   crossAxisAlignment: CrossAxisAlignment.center,
                                   mainAxisSize: MainAxisSize.min,
                                   children: [
-                                    Text("Tanggal"),
-                                    Text("Kategori"),
+                                    
+                                    GestureDetector(
+                                        onTap: () {
+                                          pengumpulanViewModel
+                                              .updateKategori(FITRAH);
+                                        },
+                                        child: Text('Fitrah')),
+                                    GestureDetector(
+                                        onTap: () {
+                                          pengumpulanViewModel
+                                              .updateKategori(MALL);
+                                        },
+                                        child: Text('Maal')),
                                   ],
                                 ),
                               ),
@@ -360,36 +374,39 @@ class pengumpulanScreen extends ConsumerWidget {
                 ),
                 DataTable(
                     columns: [
-                      DataColumn(label: Text('Tanggal')),
-                      DataColumn(label: Text('Kategori')),
-                      DataColumn(label: Text('Nominal')),
-                      DataColumn(label: Text('Detail')),
-                      DataColumn(label: Text('Edit'))
+                      DataColumn(label: Text('Tanggal', style: TextStyle(fontSize: 15),)),
+                      DataColumn(label: Text('Kategori', style: TextStyle(fontSize: 15),)),
+                      DataColumn(label: Text('Nominal', style: TextStyle(fontSize: 15),)),
+                      DataColumn(label: Text('Detail', style: TextStyle(fontSize: 15),)),
+                      DataColumn(label: Text('Delete', style: TextStyle(fontSize: 15),))
                     ],
+                    columnSpacing: 3,
+                    horizontalMargin: 0,
                     rows: List.generate(state.monthlyList.length, (index) {
                       return DataRow(cells: [
                         DataCell(SizedBox(
-                          child: Text(state.monthlyList[index].tanggal),
+                          child: Text(state.monthlyList[index].tanggal, style: TextStyle(fontSize: 15),),
                         )),
                         DataCell(SizedBox(
-                          child: Text(state.monthlyList[index].kategori),
+                          child: Text(state.monthlyList[index].kategori, style: TextStyle(fontSize: 15),),
                         )),
                         DataCell(SizedBox(
-                          child: Text('${state.monthlyList[index].nominal}'),
+                          child: Text('${state.monthlyList[index].nominal}', style: TextStyle(fontSize: 15),),
                         )),
                         DataCell(SizedBox(
                             child: GestureDetector(
-                                onTap: () {}, child: Text('Detail')))),
+                                onTap: () {}, child: Text('Detail', style: TextStyle(fontSize: 15),)))),
                         DataCell(SizedBox(
-                            width: 10,
-                            child: GestureDetector(child: Text('Detail')))),
+                            child: IconButton(onPressed: (){}, icon: Icon(Icons.delete, size: 20)))),
                       ]);
                     }))
               ],
             ),
           ),
           floatingActionButton: FloatingActionButton(
-            onPressed: () {},
+            onPressed: () {
+              Navigator.of(context).push(MaterialPageRoute(builder: (context)=>inputpengumpulanscreen()));
+            },
             child: Icon(
               Icons.add,
               color: Colors.white,

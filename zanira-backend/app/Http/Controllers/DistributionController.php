@@ -24,6 +24,7 @@ class DistributionController extends Controller
     }
 
     public function total(){
+        $foundation_id = auth()->user()->foundation->id;
         $total = Distribution::sum('nominal');
         return response(
             $total, 200
@@ -43,6 +44,15 @@ class DistributionController extends Controller
         $distribution = Distribution::find($id);
         return response(
             $distribution, 200
+        );
+    }
+
+    public function yearlyNominal(Request $request){
+        $foundation_id = auth()->user()->foundation->id;
+        $year = $request['year'];
+        $collections = Distribution::groupBy('month')->selectRaw('MONTH(tanggal) as month, sum(nominal) as nominal')->where('foundation_id', '=', $foundation_id)->where('verifikasi_status', '=', '1')->whereYear('tanggal','=', $year)->get();
+        return response(
+            $collections
         );
     }
 

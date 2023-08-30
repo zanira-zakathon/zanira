@@ -1,3 +1,7 @@
+import 'package:zanira/data/user/service/user_service.dart';
+import 'package:zanira/data/user/service/user_service_impl.dart';
+import 'package:zanira/dependency/constant.dart';
+import 'package:zanira/dependency/dependency.dart';
 import 'package:zanira/screen/login_screen.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
@@ -19,6 +23,9 @@ class SignUpScreen extends ConsumerWidget {
   final token;
   SignUpScreen(this.userRole, [this.token]);
 
+UserServices userServices =
+      getIt<UserServices>(instanceName: (UserServicesImpl).toString());
+
   @override
   Widget build(BuildContext context, ref) {
     final passToggle = ref.watch(passToggleProvider.notifier).state;
@@ -35,7 +42,7 @@ class SignUpScreen extends ConsumerWidget {
                 color: blackprimary, size: 35),
           ),
         ),
-        body: Container(
+        body: SingleChildScrollView(child: Container(
             padding: EdgeInsets.all(35),
             //layout
             child: Column(
@@ -235,10 +242,10 @@ class SignUpScreen extends ConsumerWidget {
                     child: ElevatedButton(
                         style: lightButton,
                         onPressed: () {
-                          // showDialog(
-                          //     context: context,
-                          //     builder: (context) =>
-                          //         AlertDialog(content: dialog()));
+                          userRole==ADMIN ?
+                           userServices.signUpAdmin(nameController.text, nomorController.text, emailController.text, passController.text) :
+                           userServices.signUpMember(nameController.text, nomorController.text, emailController.text, passController.text)
+                           ;
                         },
                         child: Text(
                           "Daftar",
@@ -247,6 +254,6 @@ class SignUpScreen extends ConsumerWidget {
                   ),
                 )),
               ],
-            )));
+            ))));
   }
 }

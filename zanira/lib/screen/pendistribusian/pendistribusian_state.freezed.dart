@@ -21,9 +21,12 @@ PendistribusianState _$PendistribusianStateFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$PendistribusianState {
   double get terdistribusi => throw _privateConstructorUsedError;
+  double get terkumpul => throw _privateConstructorUsedError;
   String get monthFilter => throw _privateConstructorUsedError;
-  List<Pendistribusian> get pendistribusianList =>
-      throw _privateConstructorUsedError;
+  String get yearFilter => throw _privateConstructorUsedError;
+  String get kategori => throw _privateConstructorUsedError;
+  List<MyBarChart> get yearlyNominal => throw _privateConstructorUsedError;
+  List<Pendistribusian> get monthlyList => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -39,8 +42,12 @@ abstract class $PendistribusianStateCopyWith<$Res> {
   @useResult
   $Res call(
       {double terdistribusi,
+      double terkumpul,
       String monthFilter,
-      List<Pendistribusian> pendistribusianList});
+      String yearFilter,
+      String kategori,
+      List<MyBarChart> yearlyNominal,
+      List<Pendistribusian> monthlyList});
 }
 
 /// @nodoc
@@ -58,21 +65,41 @@ class _$PendistribusianStateCopyWithImpl<$Res,
   @override
   $Res call({
     Object? terdistribusi = null,
+    Object? terkumpul = null,
     Object? monthFilter = null,
-    Object? pendistribusianList = null,
+    Object? yearFilter = null,
+    Object? kategori = null,
+    Object? yearlyNominal = null,
+    Object? monthlyList = null,
   }) {
     return _then(_value.copyWith(
       terdistribusi: null == terdistribusi
           ? _value.terdistribusi
           : terdistribusi // ignore: cast_nullable_to_non_nullable
               as double,
+      terkumpul: null == terkumpul
+          ? _value.terkumpul
+          : terkumpul // ignore: cast_nullable_to_non_nullable
+              as double,
       monthFilter: null == monthFilter
           ? _value.monthFilter
           : monthFilter // ignore: cast_nullable_to_non_nullable
               as String,
-      pendistribusianList: null == pendistribusianList
-          ? _value.pendistribusianList
-          : pendistribusianList // ignore: cast_nullable_to_non_nullable
+      yearFilter: null == yearFilter
+          ? _value.yearFilter
+          : yearFilter // ignore: cast_nullable_to_non_nullable
+              as String,
+      kategori: null == kategori
+          ? _value.kategori
+          : kategori // ignore: cast_nullable_to_non_nullable
+              as String,
+      yearlyNominal: null == yearlyNominal
+          ? _value.yearlyNominal
+          : yearlyNominal // ignore: cast_nullable_to_non_nullable
+              as List<MyBarChart>,
+      monthlyList: null == monthlyList
+          ? _value.monthlyList
+          : monthlyList // ignore: cast_nullable_to_non_nullable
               as List<Pendistribusian>,
     ) as $Val);
   }
@@ -88,8 +115,12 @@ abstract class _$$_PendistribusianStateCopyWith<$Res>
   @useResult
   $Res call(
       {double terdistribusi,
+      double terkumpul,
       String monthFilter,
-      List<Pendistribusian> pendistribusianList});
+      String yearFilter,
+      String kategori,
+      List<MyBarChart> yearlyNominal,
+      List<Pendistribusian> monthlyList});
 }
 
 /// @nodoc
@@ -104,21 +135,41 @@ class __$$_PendistribusianStateCopyWithImpl<$Res>
   @override
   $Res call({
     Object? terdistribusi = null,
+    Object? terkumpul = null,
     Object? monthFilter = null,
-    Object? pendistribusianList = null,
+    Object? yearFilter = null,
+    Object? kategori = null,
+    Object? yearlyNominal = null,
+    Object? monthlyList = null,
   }) {
     return _then(_$_PendistribusianState(
       terdistribusi: null == terdistribusi
           ? _value.terdistribusi
           : terdistribusi // ignore: cast_nullable_to_non_nullable
               as double,
+      terkumpul: null == terkumpul
+          ? _value.terkumpul
+          : terkumpul // ignore: cast_nullable_to_non_nullable
+              as double,
       monthFilter: null == monthFilter
           ? _value.monthFilter
           : monthFilter // ignore: cast_nullable_to_non_nullable
               as String,
-      pendistribusianList: null == pendistribusianList
-          ? _value._pendistribusianList
-          : pendistribusianList // ignore: cast_nullable_to_non_nullable
+      yearFilter: null == yearFilter
+          ? _value.yearFilter
+          : yearFilter // ignore: cast_nullable_to_non_nullable
+              as String,
+      kategori: null == kategori
+          ? _value.kategori
+          : kategori // ignore: cast_nullable_to_non_nullable
+              as String,
+      yearlyNominal: null == yearlyNominal
+          ? _value._yearlyNominal
+          : yearlyNominal // ignore: cast_nullable_to_non_nullable
+              as List<MyBarChart>,
+      monthlyList: null == monthlyList
+          ? _value._monthlyList
+          : monthlyList // ignore: cast_nullable_to_non_nullable
               as List<Pendistribusian>,
     ));
   }
@@ -129,9 +180,14 @@ class __$$_PendistribusianStateCopyWithImpl<$Res>
 class _$_PendistribusianState implements _PendistribusianState {
   const _$_PendistribusianState(
       {this.terdistribusi = 0,
+      this.terkumpul = 0,
       required this.monthFilter,
-      final List<Pendistribusian> pendistribusianList = const []})
-      : _pendistribusianList = pendistribusianList;
+      required this.yearFilter,
+      this.kategori = FITRAH,
+      final List<MyBarChart> yearlyNominal = const [],
+      final List<Pendistribusian> monthlyList = const []})
+      : _yearlyNominal = yearlyNominal,
+        _monthlyList = monthlyList;
 
   factory _$_PendistribusianState.fromJson(Map<String, dynamic> json) =>
       _$$_PendistribusianStateFromJson(json);
@@ -140,20 +196,36 @@ class _$_PendistribusianState implements _PendistribusianState {
   @JsonKey()
   final double terdistribusi;
   @override
+  @JsonKey()
+  final double terkumpul;
+  @override
   final String monthFilter;
-  final List<Pendistribusian> _pendistribusianList;
+  @override
+  final String yearFilter;
   @override
   @JsonKey()
-  List<Pendistribusian> get pendistribusianList {
-    if (_pendistribusianList is EqualUnmodifiableListView)
-      return _pendistribusianList;
+  final String kategori;
+  final List<MyBarChart> _yearlyNominal;
+  @override
+  @JsonKey()
+  List<MyBarChart> get yearlyNominal {
+    if (_yearlyNominal is EqualUnmodifiableListView) return _yearlyNominal;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_pendistribusianList);
+    return EqualUnmodifiableListView(_yearlyNominal);
+  }
+
+  final List<Pendistribusian> _monthlyList;
+  @override
+  @JsonKey()
+  List<Pendistribusian> get monthlyList {
+    if (_monthlyList is EqualUnmodifiableListView) return _monthlyList;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_monthlyList);
   }
 
   @override
   String toString() {
-    return 'PendistribusianState(terdistribusi: $terdistribusi, monthFilter: $monthFilter, pendistribusianList: $pendistribusianList)';
+    return 'PendistribusianState(terdistribusi: $terdistribusi, terkumpul: $terkumpul, monthFilter: $monthFilter, yearFilter: $yearFilter, kategori: $kategori, yearlyNominal: $yearlyNominal, monthlyList: $monthlyList)';
   }
 
   @override
@@ -163,16 +235,31 @@ class _$_PendistribusianState implements _PendistribusianState {
             other is _$_PendistribusianState &&
             (identical(other.terdistribusi, terdistribusi) ||
                 other.terdistribusi == terdistribusi) &&
+            (identical(other.terkumpul, terkumpul) ||
+                other.terkumpul == terkumpul) &&
             (identical(other.monthFilter, monthFilter) ||
                 other.monthFilter == monthFilter) &&
+            (identical(other.yearFilter, yearFilter) ||
+                other.yearFilter == yearFilter) &&
+            (identical(other.kategori, kategori) ||
+                other.kategori == kategori) &&
             const DeepCollectionEquality()
-                .equals(other._pendistribusianList, _pendistribusianList));
+                .equals(other._yearlyNominal, _yearlyNominal) &&
+            const DeepCollectionEquality()
+                .equals(other._monthlyList, _monthlyList));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, terdistribusi, monthFilter,
-      const DeepCollectionEquality().hash(_pendistribusianList));
+  int get hashCode => Object.hash(
+      runtimeType,
+      terdistribusi,
+      terkumpul,
+      monthFilter,
+      yearFilter,
+      kategori,
+      const DeepCollectionEquality().hash(_yearlyNominal),
+      const DeepCollectionEquality().hash(_monthlyList));
 
   @JsonKey(ignore: true)
   @override
@@ -191,10 +278,13 @@ class _$_PendistribusianState implements _PendistribusianState {
 
 abstract class _PendistribusianState implements PendistribusianState {
   const factory _PendistribusianState(
-          {final double terdistribusi,
-          required final String monthFilter,
-          final List<Pendistribusian> pendistribusianList}) =
-      _$_PendistribusianState;
+      {final double terdistribusi,
+      final double terkumpul,
+      required final String monthFilter,
+      required final String yearFilter,
+      final String kategori,
+      final List<MyBarChart> yearlyNominal,
+      final List<Pendistribusian> monthlyList}) = _$_PendistribusianState;
 
   factory _PendistribusianState.fromJson(Map<String, dynamic> json) =
       _$_PendistribusianState.fromJson;
@@ -202,9 +292,17 @@ abstract class _PendistribusianState implements PendistribusianState {
   @override
   double get terdistribusi;
   @override
+  double get terkumpul;
+  @override
   String get monthFilter;
   @override
-  List<Pendistribusian> get pendistribusianList;
+  String get yearFilter;
+  @override
+  String get kategori;
+  @override
+  List<MyBarChart> get yearlyNominal;
+  @override
+  List<Pendistribusian> get monthlyList;
   @override
   @JsonKey(ignore: true)
   _$$_PendistribusianStateCopyWith<_$_PendistribusianState> get copyWith =>

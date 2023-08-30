@@ -1,4 +1,4 @@
-const baseURL = 'http://192.168.43.104:8000/api';
+const baseURL = 'http://192.168.29.180:8000/api';
 const loginURL = '$baseURL/login';
 const signupAdminURL = '$baseURL/signup-admin';
 const signupMemberURL = '$baseURL/signup-member';
@@ -13,4 +13,5 @@ const ADMIN = 'admin';
 const MEMBER = 'member';
 
 const FITRAH = 'fitrah';
+const MALL = 'mall';
 //const 

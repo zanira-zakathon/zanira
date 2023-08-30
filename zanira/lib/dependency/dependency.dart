@@ -8,6 +8,8 @@ import 'package:zanira/data/pengumpulan/service/pengumpulan_service.dart';
 import 'package:zanira/data/pengumpulan/service/pengumpulan_service_impl.dart';
 import 'package:zanira/data/user/service/user_service.dart';
 import 'package:zanira/data/user/service/user_service_impl.dart';
+import 'package:zanira/data/yayasan/service/yayasan_service.dart';
+import 'package:zanira/data/yayasan/service/yayasan_service_impl.dart';
 
 final getIt = GetIt.instance;
 Future<void> setup() async {
@@ -24,6 +26,9 @@ Future<void> setup() async {
   // User Dependency
   getIt.registerSingleton<UserServices>(UserServicesImpl(),
       instanceName: (UserServicesImpl).toString());
+
+  getIt.registerSingleton<YayasanServices>(YayasanServicesImpl(),
+      instanceName: (YayasanServicesImpl).toString());
 
   getIt.registerSingleton<AnnouncementServices>(AnnouncementServicesImpl(),
       instanceName: (AnnouncementServicesImpl).toString());

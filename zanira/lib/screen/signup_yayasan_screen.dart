@@ -1,5 +1,9 @@
 import 'dart:math';
 
+import 'package:zanira/data/yayasan/service/yayasan_service.dart';
+import 'package:zanira/data/yayasan/service/yayasan_service_impl.dart';
+import 'package:zanira/dependency/constant.dart';
+import 'package:zanira/dependency/dependency.dart';
 import 'package:zanira/screen/login_screen.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
@@ -14,8 +18,10 @@ class SignUpYayasanScreen extends ConsumerWidget {
   final alamatController = TextEditingController();
   final passToggleProvider = StateProvider<bool>((ref) => false);
 
+  YayasanServices yayasanServices =
+      getIt<YayasanServices>(instanceName: (YayasanServicesImpl).toString());
+
   Widget build(BuildContext context, ref) {
-    final passToggle = ref.watch(passToggleProvider.notifier).state;
     return Scaffold(
         backgroundColor: Colors.white,
         resizeToAvoidBottomInset: false,
@@ -82,43 +88,43 @@ class SignUpYayasanScreen extends ConsumerWidget {
                 SizedBox(height: 10),
 
                 // double box
-                Container(
-                    height: 50,
-                    child: Expanded(
-                        child: Row(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: <Widget>[
-                        Column(
-                            mainAxisSize: MainAxisSize.min,
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: <Widget>[
-                              Container(
-                                child: Text(
-                                  'Provinsi',
-                                  style: TextStyle(
-                                    color: blackprimary,
-                                    fontSize: 12,
-                                    fontWeight: FontWeight.w300,
-                                  ),
-                                ),
-                              ),
-                              // Container(
-                              //     child: TextField(
-                              //   style: TextStyle(color: blackprimary),
-                              //   decoration: InputDecoration(
-                              //       contentPadding: EdgeInsets.symmetric(
-                              //           vertical: 3, horizontal: 10),
-                              //       border: OutlineInputBorder(
-                              //           borderSide:
-                              //               BorderSide(color: lightbackground),
-                              //           borderRadius: BorderRadius.all(
-                              //               Radius.circular(10)))),
-                              // )),
-                            ])
-                      ],
-                    ))),
+                // Container(
+                //     height: 50,
+                //     child: Expanded(
+                //         child: Row(
+                //       mainAxisAlignment: MainAxisAlignment.start,
+                //       crossAxisAlignment: CrossAxisAlignment.start,
+                //       children: <Widget>[
+                //         Column(
+                //             mainAxisSize: MainAxisSize.min,
+                //             mainAxisAlignment: MainAxisAlignment.start,
+                //             crossAxisAlignment: CrossAxisAlignment.start,
+                //             children: <Widget>[
+                //               Container(
+                //                 child: Text(
+                //                   'Provinsi',
+                //                   style: TextStyle(
+                //                     color: blackprimary,
+                //                     fontSize: 12,
+                //                     fontWeight: FontWeight.w300,
+                //                   ),
+                //                 ),
+                //               ),
+                //               // Container(
+                //               //     child: TextField(
+                //               //   style: TextStyle(color: blackprimary),
+                //               //   decoration: InputDecoration(
+                //               //       contentPadding: EdgeInsets.symmetric(
+                //               //           vertical: 3, horizontal: 10),
+                //               //       border: OutlineInputBorder(
+                //               //           borderSide:
+                //               //               BorderSide(color: lightbackground),
+                //               //           borderRadius: BorderRadius.all(
+                //               //               Radius.circular(10)))),
+                //               // )),
+                //             ])
+                //       ],
+                //     ))),
 
                 SizedBox(height: 100),
                 Container(
@@ -128,13 +134,12 @@ class SignUpYayasanScreen extends ConsumerWidget {
                         height: 40,
                         child: ElevatedButton(
                           style: lightButton,
-                          onPressed: (
-                              //navigate here
-                              ) {
+                          onPressed: () {
                             String token = generateRandomString(8);
-                            Navigator.of(context).push(MaterialPageRoute(
+                            yayasanServices.signUpYayasan(nameController.text,
+                                alamatController.text, token).then((value) =>                             Navigator.of(context).push(MaterialPageRoute(
                                 builder: (context) =>
-                                    SignUpScreen('admin', token)));
+                                    SignUpScreen(ADMIN, token))));
                           },
                           child: Text(
                             'Daftarkan admin',

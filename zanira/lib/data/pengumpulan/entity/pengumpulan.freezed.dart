@@ -28,8 +28,12 @@ mixin _$Pengumpulan {
   int get nominal => throw _privateConstructorUsedError;
   @JsonKey(name: 'tanggal')
   String get tanggal => throw _privateConstructorUsedError;
+  @JsonKey(name: 'tujuan')
+  String? get tujuan => throw _privateConstructorUsedError;
   @JsonKey(name: 'bentuk')
   String get bentuk => throw _privateConstructorUsedError;
+  @JsonKey(name: 'penanggung_jawab_id')
+  int get penanggungJawabId => throw _privateConstructorUsedError;
   @JsonKey(name: 'nama_muzakki')
   String get namaMuzakki => throw _privateConstructorUsedError;
   @JsonKey(name: 'no_muzakki')
@@ -54,7 +58,9 @@ abstract class $PengumpulanCopyWith<$Res> {
       @JsonKey(name: 'kategori') String kategori,
       @JsonKey(name: 'nominal') int nominal,
       @JsonKey(name: 'tanggal') String tanggal,
+      @JsonKey(name: 'tujuan') String? tujuan,
       @JsonKey(name: 'bentuk') String bentuk,
+      @JsonKey(name: 'penanggung_jawab_id') int penanggungJawabId,
       @JsonKey(name: 'nama_muzakki') String namaMuzakki,
       @JsonKey(name: 'no_muzakki') String noMuzakki,
       @JsonKey(name: 'tanggungan') int tanggungan});
@@ -77,7 +83,9 @@ class _$PengumpulanCopyWithImpl<$Res, $Val extends Pengumpulan>
     Object? kategori = null,
     Object? nominal = null,
     Object? tanggal = null,
+    Object? tujuan = freezed,
     Object? bentuk = null,
+    Object? penanggungJawabId = null,
     Object? namaMuzakki = null,
     Object? noMuzakki = null,
     Object? tanggungan = null,
@@ -99,10 +107,18 @@ class _$PengumpulanCopyWithImpl<$Res, $Val extends Pengumpulan>
           ? _value.tanggal
           : tanggal // ignore: cast_nullable_to_non_nullable
               as String,
+      tujuan: freezed == tujuan
+          ? _value.tujuan
+          : tujuan // ignore: cast_nullable_to_non_nullable
+              as String?,
       bentuk: null == bentuk
           ? _value.bentuk
           : bentuk // ignore: cast_nullable_to_non_nullable
               as String,
+      penanggungJawabId: null == penanggungJawabId
+          ? _value.penanggungJawabId
+          : penanggungJawabId // ignore: cast_nullable_to_non_nullable
+              as int,
       namaMuzakki: null == namaMuzakki
           ? _value.namaMuzakki
           : namaMuzakki // ignore: cast_nullable_to_non_nullable
@@ -132,7 +148,9 @@ abstract class _$$_PengumpulanCopyWith<$Res>
       @JsonKey(name: 'kategori') String kategori,
       @JsonKey(name: 'nominal') int nominal,
       @JsonKey(name: 'tanggal') String tanggal,
+      @JsonKey(name: 'tujuan') String? tujuan,
       @JsonKey(name: 'bentuk') String bentuk,
+      @JsonKey(name: 'penanggung_jawab_id') int penanggungJawabId,
       @JsonKey(name: 'nama_muzakki') String namaMuzakki,
       @JsonKey(name: 'no_muzakki') String noMuzakki,
       @JsonKey(name: 'tanggungan') int tanggungan});
@@ -153,7 +171,9 @@ class __$$_PengumpulanCopyWithImpl<$Res>
     Object? kategori = null,
     Object? nominal = null,
     Object? tanggal = null,
+    Object? tujuan = freezed,
     Object? bentuk = null,
+    Object? penanggungJawabId = null,
     Object? namaMuzakki = null,
     Object? noMuzakki = null,
     Object? tanggungan = null,
@@ -175,10 +195,18 @@ class __$$_PengumpulanCopyWithImpl<$Res>
           ? _value.tanggal
           : tanggal // ignore: cast_nullable_to_non_nullable
               as String,
+      freezed == tujuan
+          ? _value.tujuan
+          : tujuan // ignore: cast_nullable_to_non_nullable
+              as String?,
       null == bentuk
           ? _value.bentuk
           : bentuk // ignore: cast_nullable_to_non_nullable
               as String,
+      null == penanggungJawabId
+          ? _value.penanggungJawabId
+          : penanggungJawabId // ignore: cast_nullable_to_non_nullable
+              as int,
       null == namaMuzakki
           ? _value.namaMuzakki
           : namaMuzakki // ignore: cast_nullable_to_non_nullable
@@ -203,7 +231,9 @@ class _$_Pengumpulan implements _Pengumpulan {
       @JsonKey(name: 'kategori') this.kategori,
       @JsonKey(name: 'nominal') this.nominal,
       @JsonKey(name: 'tanggal') this.tanggal,
+      @JsonKey(name: 'tujuan') this.tujuan,
       @JsonKey(name: 'bentuk') this.bentuk,
+      @JsonKey(name: 'penanggung_jawab_id') this.penanggungJawabId,
       @JsonKey(name: 'nama_muzakki') this.namaMuzakki,
       @JsonKey(name: 'no_muzakki') this.noMuzakki,
       @JsonKey(name: 'tanggungan') this.tanggungan);
@@ -224,8 +254,14 @@ class _$_Pengumpulan implements _Pengumpulan {
   @JsonKey(name: 'tanggal')
   final String tanggal;
   @override
+  @JsonKey(name: 'tujuan')
+  final String? tujuan;
+  @override
   @JsonKey(name: 'bentuk')
   final String bentuk;
+  @override
+  @JsonKey(name: 'penanggung_jawab_id')
+  final int penanggungJawabId;
   @override
   @JsonKey(name: 'nama_muzakki')
   final String namaMuzakki;
@@ -238,7 +274,7 @@ class _$_Pengumpulan implements _Pengumpulan {
 
   @override
   String toString() {
-    return 'Pengumpulan(id: $id, kategori: $kategori, nominal: $nominal, tanggal: $tanggal, bentuk: $bentuk, namaMuzakki: $namaMuzakki, noMuzakki: $noMuzakki, tanggungan: $tanggungan)';
+    return 'Pengumpulan(id: $id, kategori: $kategori, nominal: $nominal, tanggal: $tanggal, tujuan: $tujuan, bentuk: $bentuk, penanggungJawabId: $penanggungJawabId, namaMuzakki: $namaMuzakki, noMuzakki: $noMuzakki, tanggungan: $tanggungan)';
   }
 
   @override
@@ -251,7 +287,10 @@ class _$_Pengumpulan implements _Pengumpulan {
                 other.kategori == kategori) &&
             (identical(other.nominal, nominal) || other.nominal == nominal) &&
             (identical(other.tanggal, tanggal) || other.tanggal == tanggal) &&
+            (identical(other.tujuan, tujuan) || other.tujuan == tujuan) &&
             (identical(other.bentuk, bentuk) || other.bentuk == bentuk) &&
+            (identical(other.penanggungJawabId, penanggungJawabId) ||
+                other.penanggungJawabId == penanggungJawabId) &&
             (identical(other.namaMuzakki, namaMuzakki) ||
                 other.namaMuzakki == namaMuzakki) &&
             (identical(other.noMuzakki, noMuzakki) ||
@@ -263,7 +302,7 @@ class _$_Pengumpulan implements _Pengumpulan {
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(runtimeType, id, kategori, nominal, tanggal,
-      bentuk, namaMuzakki, noMuzakki, tanggungan);
+      tujuan, bentuk, penanggungJawabId, namaMuzakki, noMuzakki, tanggungan);
 
   @JsonKey(ignore: true)
   @override
@@ -285,7 +324,9 @@ abstract class _Pengumpulan implements Pengumpulan {
       @JsonKey(name: 'kategori') final String kategori,
       @JsonKey(name: 'nominal') final int nominal,
       @JsonKey(name: 'tanggal') final String tanggal,
+      @JsonKey(name: 'tujuan') final String? tujuan,
       @JsonKey(name: 'bentuk') final String bentuk,
+      @JsonKey(name: 'penanggung_jawab_id') final int penanggungJawabId,
       @JsonKey(name: 'nama_muzakki') final String namaMuzakki,
       @JsonKey(name: 'no_muzakki') final String noMuzakki,
       @JsonKey(name: 'tanggungan') final int tanggungan) = _$_Pengumpulan;
@@ -306,8 +347,14 @@ abstract class _Pengumpulan implements Pengumpulan {
   @JsonKey(name: 'tanggal')
   String get tanggal;
   @override
+  @JsonKey(name: 'tujuan')
+  String? get tujuan;
+  @override
   @JsonKey(name: 'bentuk')
   String get bentuk;
+  @override
+  @JsonKey(name: 'penanggung_jawab_id')
+  int get penanggungJawabId;
   @override
   @JsonKey(name: 'nama_muzakki')
   String get namaMuzakki;
