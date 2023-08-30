@@ -380,6 +380,9 @@ class PendistribusianScreen extends ConsumerWidget {
                       DataColumn(label: Text('Detail', style: TextStyle(fontSize: 15),)),
                       DataColumn(label: Text('Batal', style: TextStyle(fontSize: 15),))
                     ],
+                  columnSpacing: 3,
+                    horizontalMargin: 0,
+                    
                     rows: List.generate(state.monthlyList.length, (index) {
                       return DataRow(cells: [
                         DataCell(SizedBox(
@@ -395,7 +398,6 @@ class PendistribusianScreen extends ConsumerWidget {
                             child: GestureDetector(
                                 onTap: () {}, child: Text('Detail', style: TextStyle(fontSize: 15),)))),
                         DataCell(SizedBox(
-                            width: 10,
                             child: GestureDetector(onTap: (){
                               
                             }, child: Icon(Icons.delete)))),
