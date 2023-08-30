@@ -3,15 +3,25 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:zanira/style/button.dart';
 import 'package:zanira/style/color.dart';
 
-class inputdistribusiscreen extends ConsumerWidget {
+class inputdistribusiscreen extends ConsumerStatefulWidget {
+  @override
+  ConsumerState<ConsumerStatefulWidget> createState() =>
+      inputdistribusiscreenState();
+}
+
+class inputdistribusiscreenState extends ConsumerState<inputdistribusiscreen> {
   final nominalController = TextEditingController();
   final tanggalController = TextEditingController();
   final bulanController = TextEditingController();
   final tahunController = TextEditingController();
   final tujuanController = TextEditingController();
+  final banyakController = TextEditingController();
+
+  String bentukText = " ";
+  String kategoriText = " ";
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
+  Widget build(BuildContext context) {
     return Scaffold(
         backgroundColor: Colors.white,
         resizeToAvoidBottomInset: false,
@@ -35,6 +45,155 @@ class inputdistribusiscreen extends ConsumerWidget {
               children: <Widget>[
                 //Padding
                 SizedBox(height: 50),
+
+                //Textview Bentuk
+                Container(
+                  child: Text(
+                    'Bentuk',
+                    style: TextStyle(
+                      color: blackprimary,
+                      fontSize: 12,
+                      fontWeight: FontWeight.w300,
+                    ),
+                  ),
+                ),
+
+                //Textfield Bentuk
+                Container(
+                  child: TextButton(
+                      style: TextButton.styleFrom(
+                          padding:
+                              EdgeInsets.symmetric(vertical: 3, horizontal: 10),
+                          shape: RoundedRectangleBorder(
+                              borderRadius:
+                                  BorderRadius.all(Radius.circular(10))),
+                          minimumSize: const Size.fromHeight(50),
+                          side: BorderSide(color: blackprimary)),
+                      onPressed: () {
+                        showDialog(
+                            context: context,
+                            builder: (context) => AlertDialog(
+                                  backgroundColor: lightbackground,
+                                  content: Container(
+                                    child: Column(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.center,
+                                      mainAxisSize: MainAxisSize.min,
+                                      children: [
+                                        //There should be an easier way to do this
+                                        TextButton(
+                                          onPressed: () {
+                                            setState(() {
+                                              bentukText = 'Uang';
+                                              Navigator.of(context).pop();
+                                            });
+                                          },
+                                          child: Text("Uang",
+                                              style: TextStyle(
+                                                  color: blackprimary,
+                                                  fontSize: 15)),
+                                        ),
+                                        TextButton(
+                                          onPressed: () {
+                                            setState(() {
+                                              bentukText = 'Benda';
+                                              Navigator.of(context).pop();
+                                            });
+                                          },
+                                          child: Text("Benda",
+                                              style: TextStyle(
+                                                  color: blackprimary,
+                                                  fontSize: 15)),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                ));
+                      },
+                      child: Text(
+                        bentukText,
+                        style: TextStyle(color: blackprimary),
+                      )),
+                ),
+
+                //Padding
+                SizedBox(height: 10),
+
+                //Textview Kategori
+                Container(
+                  child: Text(
+                    'Kategori',
+                    style: TextStyle(
+                      color: blackprimary,
+                      fontSize: 12,
+                      fontWeight: FontWeight.w300,
+                    ),
+                  ),
+                ),
+
+                //Textfield Kategori
+                Container(
+                  child: TextButton(
+                      style: TextButton.styleFrom(
+                          padding:
+                              EdgeInsets.symmetric(vertical: 3, horizontal: 10),
+                          shape: RoundedRectangleBorder(
+                              borderRadius:
+                                  BorderRadius.all(Radius.circular(10))),
+                          minimumSize: const Size.fromHeight(50),
+                          side: BorderSide(color: blackprimary)),
+                      onPressed: () {
+                        showDialog(
+                            context: context,
+                            builder: (context) => AlertDialog(
+                                  backgroundColor: lightbackground,
+                                  content: Container(
+                                    child: Column(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.center,
+                                      mainAxisSize: MainAxisSize.min,
+                                      children: [
+                                        TextButton(
+                                          onPressed: () {
+                                            setState(() {
+                                              kategoriText = 'Zakat Maal';
+                                              Navigator.of(context).pop();
+                                            });
+                                          },
+                                          child: Text("Zakat Maal",
+                                              style: TextStyle(
+                                                  color: blackprimary,
+                                                  fontSize: 15)),
+                                        ),
+                                        TextButton(
+                                          onPressed: () {
+                                            setState(() {
+                                              kategoriText = 'Zakat Fitrah';
+                                              Navigator.of(context).pop();
+                                            });
+                                          },
+                                          child: Text("Zakat Fitrah",
+                                              style: TextStyle(
+                                                  color: blackprimary,
+                                                  fontSize: 15)),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                ));
+                      },
+                      child: Text(
+                        kategoriText,
+                        style: TextStyle(color: blackprimary),
+                      )),
+                ),
+
+                //padding
+                SizedBox(height: 10),
 
                 //Textview Nominal
                 Container(
@@ -127,111 +286,6 @@ class inputdistribusiscreen extends ConsumerWidget {
                     ],
                   ),
                 ),
-                //Padding
-                SizedBox(height: 10),
-
-                //Textview Kategori
-                Container(
-                  child: Text(
-                    'Kategori',
-                    style: TextStyle(
-                      color: blackprimary,
-                      fontSize: 12,
-                      fontWeight: FontWeight.w300,
-                    ),
-                  ),
-                ),
-
-                //Textfield Kategori
-                Container(
-                  child: TextButton(
-                      style: TextButton.styleFrom(
-                          padding:
-                              EdgeInsets.symmetric(vertical: 3, horizontal: 10),
-                          shape: RoundedRectangleBorder(
-                              borderRadius:
-                                  BorderRadius.all(Radius.circular(10))),
-                          minimumSize: const Size.fromHeight(50),
-                          side: BorderSide(color: blackprimary)),
-                      onPressed: () {
-                        showDialog(
-                            context: context,
-                            builder: (context) => AlertDialog(
-                                  backgroundColor: lightbackground,
-                                  content: Container(
-                                    child: Column(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.center,
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.center,
-                                      mainAxisSize: MainAxisSize.min,
-                                      children: [
-                                        //There should be an easier way to do this
-                                        Text("Fitrah"),
-                                        Text("Maal"),
-                                      ],
-                                    ),
-                                  ),
-                                ));
-                      },
-                      child: Text(
-                        " ",
-                        style: TextStyle(color: blackprimary),
-                      )),
-                ),
-
-                //padding
-                SizedBox(height: 10),
-
-                //Textview Bentuk
-                Container(
-                  child: Text(
-                    'Bentuk',
-                    style: TextStyle(
-                      color: blackprimary,
-                      fontSize: 12,
-                      fontWeight: FontWeight.w300,
-                    ),
-                  ),
-                ),
-
-                //Textfield Bentuk
-                Container(
-                  child: TextButton(
-                      style: TextButton.styleFrom(
-                          padding:
-                              EdgeInsets.symmetric(vertical: 3, horizontal: 10),
-                          shape: RoundedRectangleBorder(
-                              borderRadius:
-                                  BorderRadius.all(Radius.circular(10))),
-                          minimumSize: const Size.fromHeight(50),
-                          side: BorderSide(color: blackprimary)),
-                      onPressed: () {
-                        showDialog(
-                            context: context,
-                            builder: (context) => AlertDialog(
-                                  backgroundColor: lightbackground,
-                                  content: Container(
-                                    child: Column(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.center,
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.center,
-                                      mainAxisSize: MainAxisSize.min,
-                                      children: [
-                                        //There should be an easier way to do this
-                                        Text("Uang"),
-                                        Text("Benda"),
-                                      ],
-                                    ),
-                                  ),
-                                ));
-                      },
-                      child: Text(
-                        " ",
-                        style: TextStyle(color: blackprimary),
-                      )),
-                ),
 
                 //Padding
                 SizedBox(height: 10),
@@ -248,12 +302,17 @@ class inputdistribusiscreen extends ConsumerWidget {
                   ),
                 ),
 
-                //Textfield tujuan
+                //Textfield tujuan (optional:hint)
                 Container(
                     child: TextField(
                   controller: tujuanController,
                   style: TextStyle(color: blackprimary),
                   decoration: InputDecoration(
+                      hintText: 'Opsional',
+                      hintStyle: TextStyle(
+                        fontSize: 13,
+                        color: Color(0xFF999999),
+                      ),
                       contentPadding:
                           EdgeInsets.symmetric(vertical: 3, horizontal: 10),
                       border: OutlineInputBorder(
@@ -279,7 +338,7 @@ class inputdistribusiscreen extends ConsumerWidget {
                             //         AlertDialog(content: dialog()));
                           },
                           child: Text(
-                            "Ajukan Distribusi",
+                            "Tambahkan",
                             style: TextStyle(color: blackprimary),
                           )),
                     ),
@@ -287,5 +346,11 @@ class inputdistribusiscreen extends ConsumerWidget {
                 )),
               ],
             )));
+  }
+
+  String calculator(String Nominal) {
+    int n = int.parse(Nominal);
+    int total = n * 25000;
+    return total.toString();
   }
 }
