@@ -7,6 +7,7 @@ import 'package:zanira/dependency/dependency.dart';
 import 'package:zanira/screen/home/home_screen.dart';
 import 'package:zanira/screen/signup_screen.dart';
 import 'package:zanira/main.dart';
+import 'package:zanira/screen/signup_yayasan_screen.dart';
 import 'package:zanira/style/color.dart';
 import 'package:zanira/style/button.dart';
 import 'package:zanira/screen/home/home_screen.dart';
@@ -177,7 +178,7 @@ class LoginScreen extends ConsumerWidget {
                                     Navigator.of(context).push(
                                         MaterialPageRoute(
                                             builder: (context) =>
-                                                SignUpScreen()));
+                                                SignUpYayasanScreen()));
                                   },
                                   child: Text(
                                     "Yayasan",
@@ -192,7 +193,8 @@ class LoginScreen extends ConsumerWidget {
                                 style: lightButton_small,
                                 onPressed: () {
                                   Navigator.of(context).push(MaterialPageRoute(
-                                      builder: (context) => SignUpScreen()));
+                                      builder: (context) =>
+                                          SignUpScreen('member')));
                                 },
                                 child: Text(
                                   "Anggota",

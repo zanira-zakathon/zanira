@@ -3,7 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:zanira/style/button.dart';
 import 'package:zanira/style/color.dart';
 
-class inputpengumpulanscreen extends ConsumerWidget {
+class inputdistribusiscreen extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return Scaffold(
@@ -69,7 +69,7 @@ class inputpengumpulanscreen extends ConsumerWidget {
                   ),
                 ),
 
-                //Textfield Tanggal
+                //Textfield
                 Container(
                     child: TextField(
                   style: TextStyle(color: blackprimary),
@@ -207,11 +207,6 @@ class inputpengumpulanscreen extends ConsumerWidget {
                     child: TextField(
                   style: TextStyle(color: blackprimary),
                   decoration: InputDecoration(
-                      hintText: 'Opsional',
-                      hintStyle: TextStyle(
-                        fontSize: 13,
-                        color: Color(0xFF999999),
-                      ),
                       contentPadding:
                           EdgeInsets.symmetric(vertical: 3, horizontal: 10),
                       border: OutlineInputBorder(
@@ -237,7 +232,7 @@ class inputpengumpulanscreen extends ConsumerWidget {
                             //         AlertDialog(content: dialog()));
                           },
                           child: Text(
-                            "Tambahkan",
+                            "Ajukan Distribusi",
                             style: TextStyle(color: blackprimary),
                           )),
                     ),

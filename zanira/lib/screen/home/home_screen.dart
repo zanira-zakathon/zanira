@@ -114,7 +114,7 @@ class HomeScreen extends ConsumerWidget {
                       decoration: BoxDecoration(
                           border: Border.all(color: lightbackground, width: 5),
                           borderRadius: BorderRadius.all(
-                            Radius.circular(20),
+                            Radius.circular(10),
                           )),
                       constraints: const BoxConstraints(maxHeight: 250),
                       child: ListView.builder(
@@ -155,7 +155,7 @@ class HomeScreen extends ConsumerWidget {
                                       });
                                 },
                                 child: Card(
-                                    color: Colors.green,
+                                    color: lightbackground,
                                     child: Padding(
                                       padding: EdgeInsets.all(10),
                                       child: Column(
@@ -196,6 +196,7 @@ class HomeScreen extends ConsumerWidget {
                     //Button untuk ke distribusi zakat
                     ElevatedButton(
                         onPressed: () {
+                          //untuk sementara.. nanti bisa di ganti
                           Navigator.of(context).push(MaterialPageRoute(
                               builder: (context) => inputpengumpulanscreen()));
                         },
@@ -214,7 +215,7 @@ class HomeScreen extends ConsumerWidget {
                     Container(
                       padding: const EdgeInsets.all(5),
                       decoration: BoxDecoration(
-                          color: lightbackground,
+                          color: Colors.white,
                           border: Border.all(color: lightbackground, width: 5),
                           borderRadius: BorderRadius.all(
                             Radius.circular(10),
