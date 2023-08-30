@@ -7,6 +7,7 @@ import 'package:pull_to_refresh/pull_to_refresh.dart';
 import 'package:zanira/screen/login_screen.dart';
 import 'package:zanira/screen/user_profile/user_profile_state.dart';
 import 'package:zanira/screen/user_profile/user_profile_viewModel.dart';
+import 'package:zanira/style/color.dart';
 
 class UserProfile extends ConsumerWidget {
   final refresher = RefreshController(initialRefresh: true);
@@ -42,13 +43,18 @@ class UserProfile extends ConsumerWidget {
         },
         child: Scaffold(
           appBar: AppBar(
-            leading: const BackButton(),
-            title: const Text(
-              "Profile",
-              style: TextStyle(color: Colors.white),
-            ),
-            backgroundColor: Colors.tealAccent[700],
-          ),
+              // leading: const BackButton(),
+              leadingWidth: 100,
+              leading: Icon(
+                Icons.arrow_circle_left_outlined,
+                color: blackprimary,
+                size: 35,
+              ),
+              title: const Text(
+                "Profile",
+                style: TextStyle(color: Color(0xFF3B4B1A)),
+              ),
+              backgroundColor: Colors.white),
           body: SingleChildScrollView(
               child: Form(
                   key: _formfield,
@@ -84,7 +90,7 @@ class UserProfile extends ConsumerWidget {
                                     bottom: 0,
                                     right: 0,
                                     child: CircleAvatar(
-                                      backgroundColor: Colors.tealAccent[700],
+                                      backgroundColor: blackprimary,
                                       child: const Icon(
                                         Icons.camera_alt,
                                         color: Colors.white,
@@ -101,17 +107,50 @@ class UserProfile extends ConsumerWidget {
                                 // }
                               }),
                         ),
-                        SizedBox(
-                          height: 10,
-                        ),
-                        Text(state.user.name),
+                        SizedBox(height: 10),
+                        Text(state.user.name,
+                            style:
+                                TextStyle(fontSize: 25, color: blackprimary)),
+                        SizedBox(height: 20),
                         GestureDetector(
-                          onTap: () {},
-                          child: const Text('Informasi akun'),
+                          onTap: () {
+                            //enter popup
+                          },
+                          child: const Text('Informasi akun',
+                              style: TextStyle(
+                                  fontSize: 20, color: Color(0xFF3B4B1A))),
                         ),
+                        SizedBox(height: 15),
                         GestureDetector(
-                          onTap: () {},
-                          child: const Text('Informasi Yayasan'),
+                          onTap: () {
+                            //enter popup
+                          },
+                          child: const Text(
+                            'Informasi Yayasan',
+                            style: TextStyle(
+                                fontSize: 20, color: Color(0xFF3B4B1A)),
+                          ),
+                        ),
+                        SizedBox(height: 15),
+                        GestureDetector(
+                          onTap: () {
+                            //put popup
+                          },
+                          child: const Text('Kelola akun',
+                              style: TextStyle(
+                                  fontSize: 20, color: Color(0xFF3B4B1A))),
+                        ),
+                        SizedBox(height: 15),
+                        GestureDetector(
+                          onTap: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: ((context) => LoginScreen())));
+                          },
+                          child: const Text('Keluar',
+                              style: TextStyle(
+                                  fontSize: 20, color: Color(0xFF3B4B1A))),
                         ),
                       ]))),
         ));
